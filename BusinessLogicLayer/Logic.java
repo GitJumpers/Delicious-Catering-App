@@ -81,6 +81,13 @@ public class Logic
     
     /* Ending logic */
     //Miss. Raheal should be able to see all her bookings,
+    public ArrayList<String> viewAllBookings()
+    {   
+        ArrayList<String> allBookings = new ArrayList<String>(); /* replace with sql funciton */
+
+        return allBookings;
+    }
+
     //see all confirmed/non confirmed bookings
     //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
     //The system must send a notification to the client once the booking is confirmed by Miss. Rachael.

@@ -51,11 +51,23 @@ public class Logic
 
         return confirmationFlag;
     }
+    
 
     
     //If the total number of people is above 40 there is a 15% discount from the calculated total adult's meal price.
+    public float discountCheck(int amountOfPeople, Float eventCost)
+    {
+        float newMealCost = eventCost;
+        float discountPercentage = 0.15f;
+
+        if (amountOfPeople > 40) {
+            newMealCost = newMealCost - (newMealCost * discountPercentage);
+        }
+
+        return newMealCost;
+    }
+
     //The client can update the selected food menu before booking confirmation.
-    //The client must be able to register into the system with required details such as name, surname and phone number etc.
 
 
     /* Booking Questions */

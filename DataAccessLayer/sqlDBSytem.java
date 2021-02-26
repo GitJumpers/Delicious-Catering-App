@@ -6,5 +6,7 @@ import java.sql.*;
 
 
 public class sqlDBSytem {
-  
+    public static void main(String[] args) {
+        
+    }
 }

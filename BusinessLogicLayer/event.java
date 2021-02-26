@@ -17,6 +17,9 @@ public class event
     int eventNumberOfPeople;
     Float eventCost;
 
+
+    boolean confirmationStatus;
+
     //Any decorations? If the answer is yes ask additional questions.
     Boolean decorationFlag;
     String decorationDetails;
@@ -25,7 +28,7 @@ public class event
     Boolean themeFlag;
     String theme;
 
-    public event(int CustomerID, int EventID, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ThemeFlag, String Theme)
+    public event(int CustomerID, int EventID, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
     {
         this.customerID = CustomerID;
         this.eventID = EventID;
@@ -34,6 +37,7 @@ public class event
         this.eventVenue = EventVenue;
         this.eventNumberOfPeople = EventNumberOfPeople;
         this.eventCost = EventCost;
+        this.confirmationStatus = ConfirmationStatus;
         this.themeFlag = ThemeFlag;
         this.theme = Theme;
     }

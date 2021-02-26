@@ -89,6 +89,20 @@ public class Logic
     }
 
     //see all confirmed/non confirmed bookings
+    public ArrayList<String> viewAllConfirmedCases()
+    {
+        ArrayList<String> viewAllCOnfirmed = new ArrayList<String>();  /* replace with sql funciton */
+
+        return viewAllCOnfirmed;
+    }
+
+    public ArrayList<String> viewAllNonConfirmedCases()
+    {
+        ArrayList<String> viewAllNonCOnfirmed = new ArrayList<String>();  /* replace with sql funciton */
+
+        return viewAllNonCOnfirmed;
+    }
+
     //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
     //The system must send a notification to the client once the booking is confirmed by Miss. Rachael.
     //notification if the client makes any changes in the order

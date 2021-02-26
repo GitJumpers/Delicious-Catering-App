@@ -104,8 +104,15 @@ public class Logic
     }
 
     //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
+
     //The system must send a notification to the client once the booking is confirmed by Miss. Rachael.
+    /* Use this method to set the confirmation status on the customer object to true */
+    public boolean ConfirmedByMissRachael(event PlannedEvent)
+    {
+        return true;
+    }
     //notification if the client makes any changes in the order
+    /* Presentation layer??? ^^^ */
 
     /* extra features */
     //show available dates for customers

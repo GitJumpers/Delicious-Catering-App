@@ -2,11 +2,15 @@ package BusinessLogicLayer;
 
 public class customerEvent 
 {
+    //People order food from her for different events
+    //If any client requests to decorate the venue she does that according to client’s recommended theme.
+    //Once the booking has taken place she gives a booking number.
     int customerID;
     String customerName;
     String customerSurname;
     int bookingNumber;
-
+    
+    String eventDate;
     String eventName;
     String eventType;
     Boolean themeFlag;

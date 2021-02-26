@@ -1,5 +1,7 @@
 package BusinessLogicLayer;
 
+import java.util.*;
+
 public class Logic 
 {
     //class's
@@ -10,22 +12,29 @@ public class Logic
 
 
     //methods
-
+    //setDate format
+    public String DateFormat(int day,int month,int year)
+    {
+        String newDate;
+        //DD-MM-YYYY
+        newDate = day + "-" + month + "-" + year;
+        return newDate;
+    }
 
 
     /* Starting logic */
-    //People order food from her for different events
-    //If any client requests to decorate the venue she does that according to client’s recommended theme.
-    //Once the booking has taken place she gives a booking number.
-    public  customerEvent GetEventInfo(int CustomerID, int bookingNumber, String CustomerName, String CustomerSurname, String EventName, String eventType, Boolean themeFlag, String theme)
+    //one booking a day. (checks dataBase if there is an event stored on the day.)
+    public Boolean oneBookingDayCheck(String FormattedDate)
     {
-        //get customer ID from database
-        
-        customerEvent eventInfo = new customerEvent(CustomerID, bookingNumber, CustomerName, CustomerSurname, EventName, eventType, themeFlag, theme);
-        return eventInfo;
+        Boolean dateExists = false;
+
+        if (/*insert database method*/ true) 
+        {
+            dateExists = true;
+        }
+
+        return dateExists;
     }
-    
-    //one booking a day.
 
     //confirm the booking by 15 days prior to the event by giving 50 % of the calculated total price.
     //If the total number of people is above 40 there is a 15% discount from the calculated total adult's meal price.

@@ -68,16 +68,17 @@ public class Logic
     }
 
     //The client can update the selected food menu before booking confirmation.
+    //ask how food will be implemented????????
 
-
+    
+    
+    
+    
     /* Booking Questions */
-    //Type of event?
-    //Event date and time?
-    //Event venue address?
-    //The total number of people?
     //Food- selection from the menu
-    //Any decorations? If the answer is yes ask additional questions.
+    
 
+    
     /* Ending logic */
     //Miss. Raheal should be able to see all her bookings,
     //see all confirmed/non confirmed bookings

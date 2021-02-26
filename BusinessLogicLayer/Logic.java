@@ -1,5 +1,6 @@
 package BusinessLogicLayer;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Logic 
@@ -18,6 +19,8 @@ public class Logic
         String newDate;
         //DD-MM-YYYY
         newDate = day + "-" + month + "-" + year;
+        // SimpleDateFormat sdf = new SimpleDateFormat("DD-MM-YYYY");
+        // Date date = sdf.parse(newDate);
         return newDate;
     }
 
@@ -37,6 +40,19 @@ public class Logic
     }
 
     //confirm the booking by 15 days prior to the event by giving 50 % of the calculated total price.
+    public boolean processConfirmationpayment(String eventDate, Float paidAmount, Float amountOutstanding)
+    {
+        boolean confirmationFlag = false;
+        int dateDiff = 2 - 1; /* subtrack event date from todaysDate */
+
+        if (dateDiff >= 15 && paidAmount >= amountOutstanding) {
+            confirmationFlag = true;
+        }
+
+        return confirmationFlag;
+    }
+
+    
     //If the total number of people is above 40 there is a 15% discount from the calculated total adult's meal price.
     //The client can update the selected food menu before booking confirmation.
     //The client must be able to register into the system with required details such as name, surname and phone number etc.

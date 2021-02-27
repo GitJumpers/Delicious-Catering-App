@@ -26,4 +26,22 @@ public class fileSystem {
         
         writer.close();
     }
+
+    //Creating method to store Events to textfile
+    public void storeEvents() throws IOExeption{
+        FileWriter writer = new FileWriter("Events.txt");
+
+        ArrayList<String> EventsList= new ArrayList<String>();
+        //Create an object of sqlDbConnection
+        sqlDbConnection objEvents = new sqlDbConnection();
+
+        //Retrieves customer details within the db
+        EventsList = objEvents.viewCustomers();
+
+        for (String data: EventsList) {
+            writer.write(data);
+        }    
+        
+        writer.close();
+    }
 }

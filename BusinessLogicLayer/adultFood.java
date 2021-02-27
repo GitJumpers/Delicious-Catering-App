@@ -7,4 +7,5 @@ public class adultFood extends food
     int gammonRoastMeals;
     int pastaMeals;
     int soupMeals;
+    int lobsterBisqueMeals;
 }

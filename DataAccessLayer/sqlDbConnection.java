@@ -95,7 +95,7 @@ public class sqlDbConnection {
         Statement statement = connection.createStatement()){
             //SQL Insert statement
             String insertEventSql = "INSERT INTO tblEvents VALUES(" + CustomerID + "," + EventID + "," + 
-            EventName + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
+            EventName + "," + EventType + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
             + "," + ConfirmationStatus + "," + ThemeFlag + "," + Theme +");";
             statement.executeUpdate(insertEventSql);
 

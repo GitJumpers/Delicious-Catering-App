@@ -111,14 +111,14 @@ public class Logic
     //see all confirmed/non confirmed bookings
     public ArrayList<String> viewAllConfirmedCases()
     {
-        ArrayList<String> viewAllCOnfirmed = Conn.viewConfirmedBookings();  /* replace with sql funciton */
+        ArrayList<String> viewAllCOnfirmed = Conn.viewConfirmedBookings(1);  /* replace with sql funciton */
 
         return viewAllCOnfirmed;
     }
 
     public ArrayList<String> viewAllNonConfirmedCases()
     {
-        ArrayList<String> viewAllNonCOnfirmed = new ArrayList<String>();  /* replace with sql funciton */
+        ArrayList<String> viewAllNonCOnfirmed = Conn.viewConfirmedBookings(0);  /* replace with sql funciton */
 
         return viewAllNonCOnfirmed;
     }

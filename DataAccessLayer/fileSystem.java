@@ -41,7 +41,7 @@ public class fileSystem {
         for (String data: EventsList) {
             writer.write(data);
         }    
-        
+        //close writer
         writer.close();
     }
 }

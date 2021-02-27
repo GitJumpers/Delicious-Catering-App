@@ -8,6 +8,7 @@ public class event
     //Event date and time?
     //Event venue address?
     //The total number of people?
+    //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
     
     int eventID;
     int eventBookingNumber;

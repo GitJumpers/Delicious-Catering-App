@@ -69,16 +69,15 @@ public class Logic
         return newMealCost;
     }
 
+    
+    
+    
+    
+    
     //The client can update the selected food menu before booking confirmation.
     //ask how food will be implemented????????
-
-    
-    
-    
-    
     /* Booking Questions */
     //Food- selection from the menu
-    
 
     
     /* Ending logic */
@@ -105,7 +104,7 @@ public class Logic
         return viewAllNonCOnfirmed;
     }
 
-    //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
+    
 
     //The system must send a notification to the client once the booking is confirmed by Miss. Rachael.
     /* Use this method to set the confirmation status on the customer object to true */

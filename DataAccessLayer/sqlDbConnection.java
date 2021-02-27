@@ -21,14 +21,14 @@ public class sqlDbConnection {
     + "password=GIT!@#git123; ";
 
     //Creating method to view bookings
-    public ArrayList<String> viewConfirmedBookings() {     
+    public ArrayList<String> viewConfirmedBookings(int confirmation) {     
         ResultSet rsResult = null;
         ArrayList<String> bookingsList= new ArrayList<String>();
         
         try (Connection connection = DriverManager.getConnection(connectionUrl);
         Statement statement = connection.createStatement()){
             //code
-            String selectBookingSql = "SELECT * FROM tblBookings WHERE BookingConfirmed = 1";
+            String selectBookingSql = "SELECT * FROM tblBookings WHERE BookingConfirmed = " + confirmation;
             rsResult = statement.executeQuery(selectBookingSql);
 
             

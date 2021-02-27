@@ -1,14 +1,17 @@
 package BusinessLogicLayer;
 
+import DataAccessLayer.*;
+
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.sql.SQLException;
 import java.text.ParseException;
 
 public class Logic 
 {
     //class's
-    
+    sqlDbConnection Conn = new sqlDbConnection();
     
     //variables
 
@@ -29,11 +32,11 @@ public class Logic
 
     /* Starting logic */
     //one booking a day. (checks dataBase if there is an event stored on the day.)
-    public Boolean oneBookingDayCheck(String FormattedDate)
+    public Boolean oneBookingDayCheck(String FormattedDate) throws SQLException
     {
         Boolean dateExists = false;
 
-        if (/*insert database method*/ true) 
+        if (Conn.bookingCheck()) 
         {
             dateExists = true;
         }
@@ -100,7 +103,7 @@ public class Logic
     //Miss. Raheal should be able to see all her bookings,
     public ArrayList<String> viewAllBookings()
     {   
-        ArrayList<String> allBookings = new ArrayList<String>(); /* replace with sql funciton */
+        ArrayList<String> allBookings = Conn.viewEvents(); /* replace with sql funciton */
 
         return allBookings;
     }
@@ -108,7 +111,7 @@ public class Logic
     //see all confirmed/non confirmed bookings
     public ArrayList<String> viewAllConfirmedCases()
     {
-        ArrayList<String> viewAllCOnfirmed = new ArrayList<String>();  /* replace with sql funciton */
+        ArrayList<String> viewAllCOnfirmed = Conn.viewConfirmedBookings();  /* replace with sql funciton */
 
         return viewAllCOnfirmed;
     }

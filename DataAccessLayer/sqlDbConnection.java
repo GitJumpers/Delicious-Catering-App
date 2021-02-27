@@ -65,6 +65,34 @@ public class sqlDbConnection {
         }  
     }
 
-    //Method to view cutomers
+    //Creating Method to view cutomers
+    public ArrayList<String> viewCustomers() {     
+        //Creating connection string
+        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
+        + "database=DeliciousCateringDB; "
+        + "user=gitjumpers@(local); "
+        + "password=GIT!@#git123; ";
 
+        ResultSet rsResult = null;
+        ArrayList<String> customerList= new ArrayList<String>();
+        
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //code
+            String selectCustomerSql = "SELECT * FROM tblCustomers";
+            rsResult = statement.executeQuery(selectCustomerSql);
+
+            while (rsResult.next()) {
+                //add values in ResultSet to ArrayList as an object type Bookings
+                customerList.add(rsResult.getString(1) + "," + rsResult.getString(2) + "," + rsResult.getString(3)
+                + "," + rsResult.getString(4) + "," + rsResult.getString(5) + "," + rsResult.getString(6));
+            }
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+        
+        
+        return customerList;
+    }
 }

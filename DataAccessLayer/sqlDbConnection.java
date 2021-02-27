@@ -95,7 +95,7 @@ public class sqlDbConnection {
         Statement statement = connection.createStatement()){
             //SQL Insert statement
             String insertEventSql = "INSERT INTO tblEvents VALUES(" + CustomerID + "," + EventID + "," + 
-            EventName + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
+            EventName + "," + EventType + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
             + "," + ConfirmationStatus + "," + ThemeFlag + "," + Theme +");";
             statement.executeUpdate(insertEventSql);
 
@@ -103,6 +103,31 @@ public class sqlDbConnection {
         catch (SQLException e) {
             e.printStackTrace();
         }  
+    }
+    //Creating Method to view events
+    public ArrayList<String> viewEvents() {     
+        ResultSet rsResult = null;
+        ArrayList<String> EventsList= new ArrayList<String>();
+        
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //code
+            String selectEventsSql = "SELECT * FROM tblEvents";
+            rsResult = statement.executeQuery(selectEventsSql);
+
+            while (rsResult.next()) {
+                //add values in ResultSet to ArrayList as an object type Bookings
+                EventsList.add(rsResult.getString(1) + "," + rsResult.getString(2) + "," + rsResult.getString(3)
+                + "," + rsResult.getString(4) + "," + rsResult.getString(5) + "," + rsResult.getString(6) + "," + rsResult.getString(7)
+                + "," + rsResult.getString(8) + "," + rsResult.getString(9) + "," + rsResult.getString(10));
+            }
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+        
+        
+        return EventsList;
     }
         
     //Method will check to see if there are any duplicate bookings on a particular date

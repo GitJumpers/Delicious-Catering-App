@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
+import java.sql.CallableStatement;
 import java.util.*;
 
 import BusinessLogicLayer.customer;
@@ -102,6 +104,33 @@ public class sqlDbConnection {
             e.printStackTrace();
         }  
     }
+        
+    //Method will check to see if there are any duplicate bookings on a particular date
+    public boolean bookingCheck() throws SQLException{
 
-    
+        boolean bFlag = false;
+        CallableStatement cStatement = null;
+        
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            /*
+            Function in SQL server will check to see it there are any duplicate
+            dates and will return a boolean value
+            */
+            cStatement = connection.prepareCall("{?= call fnCheckAvailDate(?)}");
+            cStatement.registerOutParameter(1, Types.BOOLEAN);
+
+            cStatement.execute();
+
+            bFlag = cStatement.getBoolean(1);
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+        finally{
+            cStatement.close();
+        }
+
+        return bFlag;
+    }
 }

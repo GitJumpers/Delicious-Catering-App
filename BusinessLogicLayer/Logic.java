@@ -69,15 +69,6 @@ public class Logic
         return newMealCost;
     }
 
-    
-    
-    
-    
-    
-    //The client can update the selected food menu before booking confirmation.
-    //ask how food will be implemented????????
-    /* Booking Questions */
-    //Food- selection from the menu
 
     
     /* Ending logic */
@@ -116,4 +107,10 @@ public class Logic
 
     /* extra features */
     //show available dates for customers
+    public ArrayList<String> viewAvailableDates()
+    {
+        ArrayList<String> allAvailable = new ArrayList<String>(); /* replace with sql funciton */
+
+        return allAvailable;
+    }
 }

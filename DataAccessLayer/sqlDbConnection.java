@@ -32,7 +32,8 @@ public class sqlDbConnection {
             
             while (rsResult.next()) {
                 //add values in ResultSet to ArrayList as an object type Bookings
-                bookingsList.add("");
+                bookingsList.add(rsResult.getString(1) + "," + rsResult.getString(2) + "," + rsResult.getString(3)
+                + "," + rsResult.getString(4));
             }
         } 
         catch (SQLException e) {
@@ -65,5 +66,5 @@ public class sqlDbConnection {
     }
 
     //Method to view cutomers
-    
+
 }

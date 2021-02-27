@@ -14,11 +14,11 @@ public class Logic
 
     //methods
     //setDate format
-    public String DateFormat(int day,int month,int year)
+    public String DateFormat(int day,int month,int year, int hours, int minutes, int seconds)
     {
         String newDate;
         //DD-MM-YYYY
-        newDate = day + "-" + month + "-" + year;
+        newDate = day + "-" + month + "-" + year + " " + hours + "-" + minutes + "-" + seconds;;
         // SimpleDateFormat sdf = new SimpleDateFormat("DD-MM-YYYY");
         // Date date = sdf.parse(newDate);
         return newDate;
@@ -45,7 +45,8 @@ public class Logic
         boolean confirmationFlag = false;
         int dateDiff = 2 - 1; /* subtrack event date from todaysDate */
 
-        if (dateDiff >= 15 && paidAmount >= amountOutstanding) {
+        if (dateDiff >= 15 && paidAmount >= amountOutstanding) 
+        {
             confirmationFlag = true;
         }
 
@@ -60,23 +61,14 @@ public class Logic
         float newMealCost = eventCost;
         float discountPercentage = 0.15f;
 
-        if (amountOfPeople > 40) {
+        if (amountOfPeople > 40)
+        {
             newMealCost = newMealCost - (newMealCost * discountPercentage);
         }
 
         return newMealCost;
     }
 
-    //The client can update the selected food menu before booking confirmation.
-    //ask how food will be implemented????????
-
-    
-    
-    
-    
-    /* Booking Questions */
-    //Food- selection from the menu
-    
 
     
     /* Ending logic */
@@ -103,7 +95,7 @@ public class Logic
         return viewAllNonCOnfirmed;
     }
 
-    //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
+    
 
     //The system must send a notification to the client once the booking is confirmed by Miss. Rachael.
     /* Use this method to set the confirmation status on the customer object to true */
@@ -111,9 +103,14 @@ public class Logic
     {
         return true;
     }
-    //notification if the client makes any changes in the order
-    /* Presentation layer??? ^^^ */
+
 
     /* extra features */
     //show available dates for customers
+    public ArrayList<String> viewAvailableDates()
+    {
+        ArrayList<String> allAvailable = new ArrayList<String>(); /* replace with sql funciton */
+
+        return allAvailable;
+    }
 }

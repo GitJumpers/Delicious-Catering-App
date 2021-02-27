@@ -10,13 +10,11 @@ public class customer
     String customerName;
     String customerSurname;
     String customerPhoneNumber;
-    int customerBookingNumber;
     Float customerPaid;
 
-    public customer(int CustomerID, int BookingNumber, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
+    public customer(int CustomerID, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerID = CustomerID;
-        this.customerBookingNumber = BookingNumber;
         this.customerName = CustomerName;
         this.customerSurname = CustomerSurname;
         this.customerPhoneNumber = CustomerPhoneNumber;

@@ -15,7 +15,7 @@ import java.sql.ResultSet;
 
 public class sqlDbConnection {
     //Creating connection string constant
-    private String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
+    private static String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
     + "database=DeliciousCateringDB; "
     + "user=gitjumpers@(local); "
     + "password=GIT!@#git123; ";
@@ -106,7 +106,7 @@ public class sqlDbConnection {
     }
         
     //Method will check to see if there are any duplicate bookings on a particular date
-    public boolean bookingCheck() throws SQLException{
+    public static boolean bookingCheck() throws SQLException{
 
         boolean bFlag = false;
         CallableStatement cStatement = null;

@@ -1,6 +1,7 @@
 package BusinessLogicLayer;
 
-public class childFood {
+public class childFood extends food
+{
     int hotDogMeals;
     int chickenburgerMeals;
     int beefBurgerMeals;

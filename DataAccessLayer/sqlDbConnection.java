@@ -12,14 +12,14 @@ import BusinessLogicLayer.customer;
 import java.sql.ResultSet;
 
 public class sqlDbConnection {
+    //Creating connection string constant
+    private String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
+    + "database=DeliciousCateringDB; "
+    + "user=gitjumpers@(local); "
+    + "password=GIT!@#git123; ";
+
     //Creating method to view bookings
     public ArrayList<String> viewConfirmedBookings() {     
-        //Creating connection string
-        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
-        + "database=DeliciousCateringDB; "
-        + "user=gitjumpers@(local); "
-        + "password=GIT!@#git123; ";
-
         ResultSet rsResult = null;
         ArrayList<String> bookingsList= new ArrayList<String>();
         
@@ -46,12 +46,7 @@ public class sqlDbConnection {
     }
 
     //Creating method to insert customer information
-    public void insertCustomer(int CustomerID, int BookingNumber, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber) {
-        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
-        + "database=DeliciousCateringDB; "
-        + "user=gitjumpers@(local); "
-        + "password=GIT!@#git123; ";
-        
+    public void insertCustomer(int CustomerID, int BookingNumber, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber) {    
         try (Connection connection = DriverManager.getConnection(connectionUrl);
         Statement statement = connection.createStatement()){
             //SQL Insert statement
@@ -67,12 +62,6 @@ public class sqlDbConnection {
 
     //Creating Method to view cutomers
     public ArrayList<String> viewCustomers() {     
-        //Creating connection string
-        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
-        + "database=DeliciousCateringDB; "
-        + "user=gitjumpers@(local); "
-        + "password=GIT!@#git123; ";
-
         ResultSet rsResult = null;
         ArrayList<String> customerList= new ArrayList<String>();
         
@@ -95,4 +84,6 @@ public class sqlDbConnection {
         
         return customerList;
     }
+
+
 }

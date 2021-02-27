@@ -2,6 +2,8 @@ package BusinessLogicLayer;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+import java.text.ParseException;
 
 public class Logic 
 {
@@ -43,7 +45,21 @@ public class Logic
     public boolean processConfirmationpayment(String eventDate, Float paidAmount, Float amountOutstanding)
     {
         boolean confirmationFlag = false;
-        int dateDiff = 2 - 1; /* subtrack event date from todaysDate */
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+
+        Date eventDateFormat = new Date();
+        try 
+        {
+            eventDateFormat = sdf.parse(eventDate);
+        } 
+        catch (ParseException e) 
+        {
+            System.out.println("Caught exception");
+            e.printStackTrace();
+        }
+
+        long dateDiff = dateDiffToday(eventDateFormat); /* subtrack event date from todaysDate */
 
         if (dateDiff >= 15 && paidAmount >= amountOutstanding) 
         {
@@ -53,7 +69,16 @@ public class Logic
         return confirmationFlag;
     }
     
+    public Long dateDiffToday(Date eventDate)
+    {
+        //getting current date
+        Date today =java.util.Calendar.getInstance().getTime();
 
+        long diffInMillies = Math.abs(eventDate.getTime() - today.getTime());
+        long diff = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+
+        return diff;
+    }
     
     //If the total number of people is above 40 there is a 15% discount from the calculated total adult's meal price.
     public float discountCheck(int amountOfPeople, Float eventCost)

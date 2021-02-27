@@ -10,7 +10,8 @@ import java.io.IOException;
 
 public class fileSystem {
     //Creating method to store Customers to textfile
-    public void storeCustomers() throws IOExeption{
+    public void storeCustomers() throws IOException{
+
         FileWriter writer = new FileWriter("Customers.txt");
 
         ArrayList<String> customerList= new ArrayList<String>();
@@ -28,7 +29,7 @@ public class fileSystem {
     }
 
     //Creating method to store Events to textfile
-    public void storeEvents() throws IOExeption{
+    public void storeEvents() throws IOException{
         FileWriter writer = new FileWriter("Events.txt");
 
         ArrayList<String> EventsList= new ArrayList<String>();

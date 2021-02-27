@@ -10,6 +10,7 @@ public class event
     //The total number of people?
     
     int eventID;
+    int eventBookingNumber;
     String eventDate;
     String eventName;
     String eventType;
@@ -28,9 +29,10 @@ public class event
     Boolean themeFlag;
     String theme;
 
-    public event(int CustomerID, int EventID, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
+    public event(int CustomerID, int EventID, int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
     {
         this.customerID = CustomerID;
+        this.eventBookingNumber = EventBookingNumber;
         this.eventID = EventID;
         this.eventName = EventName;
         this.eventType = EventType;

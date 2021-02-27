@@ -85,5 +85,23 @@ public class sqlDbConnection {
         return customerList;
     }
 
+    //Creating method to insert event information
+    public void insertEvent(int CustomerID, int EventID, String EventName, String EventType,String EventVenue, int EventNumberOfPeople
+    , Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme) {  
 
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //SQL Insert statement
+            String insertEventSql = "INSERT INTO tblEvents VALUES(" + CustomerID + "," + EventID + "," + 
+            EventName + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
+            + "," + ConfirmationStatus + "," + ThemeFlag + "," + Theme +");";
+            statement.executeUpdate(insertEventSql);
+
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+    }
+
+    
 }

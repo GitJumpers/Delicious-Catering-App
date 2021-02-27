@@ -6,36 +6,14 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
+
+import BusinessLogicLayer.customer;
+
 import java.sql.ResultSet;
 
 public class sqlDbConnection {
-    
-
-    //Creating connection method for DB
-    /*
-    public static void ConnectSqlDb() {
-        //Creating connection string
-        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
-        + "database=DeliciousCateringDB; "
-        + "user=gitjumpers@(local); "
-        + "password=GIT!@#git123; ";
-
-        ResultSet rsResult = null;
-        
-        try (Connection connection = DriverManager.getConnection(connectionUrl);
-        Statement statement = connection.createStatement()){
-            //code
-            rsResult = statement.executeQuery(bookingsTable());
-        } 
-        catch (SQLException e) {
-            //TODO: handle exception
-            e.printStackTrace();
-        }
-    }
-    */
-
     //Creating method to view bookings
-    public ArrayList<String> bookingsTable() {     
+    public ArrayList<String> viewConfirmedBookings() {     
         //Creating connection string
         String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
         + "database=DeliciousCateringDB; "
@@ -65,4 +43,27 @@ public class sqlDbConnection {
         
         return bookingsList;
     }
+
+    //Creating method to insert customer information
+    public void insertCustomer(int CustomerID, int BookingNumber, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber) {
+        String connectionUrl = "jdbc:sqlserver://(local).database.windows.net:1433; "
+        + "database=DeliciousCateringDB; "
+        + "user=gitjumpers@(local); "
+        + "password=GIT!@#git123; ";
+        
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //SQL Insert statement
+            String insertCustSql = "INSERT INTO tblBookings VALUES(" + CustomerID + "," + BookingNumber + "," + 
+            CustomerPaid + "," + CustomerName + "," + CustomerSurname + "," + CustomerPhoneNumber +");";
+            statement.executeUpdate(insertCustSql);
+
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+    }
+
+    //Method to view cutomers
+    
 }

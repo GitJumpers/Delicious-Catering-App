@@ -42,7 +42,7 @@ public class Logic
     }
 
     //confirm the booking by 15 days prior to the event by giving 50 % of the calculated total price.
-    public boolean processConfirmationpayment(String eventDate, Float paidAmount, Float amountOutstanding)
+    public boolean processConfirmationPayment(String eventDate, Float paidAmount, Float amountOutstanding)
     {
         boolean confirmationFlag = false;
         

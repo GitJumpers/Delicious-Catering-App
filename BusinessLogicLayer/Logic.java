@@ -64,7 +64,8 @@ public class Logic
 
         long dateDiff = dateDiffToday(eventDateFormat); /* subtrack event date from todaysDate */
 
-        if (dateDiff >= 15 && paidAmount >= amountOutstanding) 
+        Float halfOutStandingAmount = amountOutstanding * 0.5f;
+        if (dateDiff >= 15 && paidAmount >= halfOutStandingAmount) 
         {
             confirmationFlag = true;
         }

@@ -30,12 +30,12 @@ public class UserInput {
         String customerSurname = sc.nextLine();
         System.out.println("============"); 
 
-        System.out.println("Please enter your ID-number:");
+        System.out.println("Please enter your ID-number:"); /*We get ID from database*/
         int customerID = sc.nextInt();
         System.out.println("============"); 
 
-        System.out.println("Please enter your Phone Number:");
-        int customerPhoneNumber = sc.nextInt();
+        System.out.println("Please enter your Phone Number:"); 
+        int customerPhoneNumber = sc.nextInt(); /*this should be a string*/
         System.out.println("============"); 
         
         //  Pop up message
@@ -44,7 +44,7 @@ public class UserInput {
         System.out.println("---------------------------------------------------------"); 
 
         System.out.println(" ");
-        System.out.println("Hallo " + customerName + " " + customerSurname + ", what is the date of youre required catering service?");
+        System.out.println("Hello " + customerName + " " + customerSurname + ", what is the date of youre required catering service?");
         System.out.println(" ");
 
         //Geting user input: Catering
@@ -57,7 +57,7 @@ public class UserInput {
         int Day = sc.nextInt();
         System.out.println("----------------------"); 
 
-        String Date = Year + "/" + Month + "/" + Day;
+        String Date = Year + "/" + Month + "/" + Day; /* use date format method */
 
         //check if the day is exist
         //having a problem with date
@@ -65,11 +65,11 @@ public class UserInput {
         //if it doesnt exist then print that they have choosen this date
 
         //if available
-        System.out.println("The date " + Year + "/" + Month + "/" + Day + " Is available for booking...Do you want to book it");
+        System.out.println("The date " + Year + "/" + Month + "/" + Day + " Is available for booking...Do you want to book it"); /* use date format */
         String DateAccept = sc.nextLine();
 
-
-        if (DateAccept == "Yes") {
+        /* Create new method to get booking number from database */
+        if (DateAccept == "Yes") { 
             
             //Print generated booking number and notify Miss.Rachael
             System.out.println("Example: 09u876242 is your booking number "); 
@@ -93,7 +93,7 @@ public class UserInput {
         // }
 
         //call a class from the BusinessLayer and Declare it object
-        Logic date = new Logic();
+        Logic date = new Logic(); /* rename this to logicController */
 
         //Getting the event type
         System.out.println(" ");
@@ -156,7 +156,7 @@ public class UserInput {
         //output
         System.out.println("The reciept");
         System.out.println("---------------------------------------------------------"); 
-        customer ct = new customer(customerID, null, customerName, customerSurname, customerPhoneNumber);
+        customer ct = new customer(customerID, null, customerName, customerSurname, customerPhoneNumber); /* Ammount paid needs to replace the null value */
         System.out.println("Client Name: " + customerName);
         System.out.println("Client Last Name: " + customerSurname); 
         System.out.println("ID Number: " + customerID);
@@ -172,16 +172,16 @@ public class UserInput {
         System.out.println(" Type of Event:  " + eventType + 
         "Date or the event: "+ Date +
          "Decor:" + decoration +
-         "The overall total for the event is :" +date.discountCheck(People, null));
+         "The overall total for the event is :" +date.discountCheck(People, null)); /* Needs the cost of the event as a perameter*/
 
          System.out.println("Enter the amount you would like to deposit: ");
          Float customerPaid =sc.nextFloat();
 
-         if(date.processConfirmationPayment(Date, customerPaid, null)){
+         if(date.processConfirmationPayment(Date, customerPaid, null)){ /* needs amountOutStanding variable */
             System.out.println("Payment successful"); 
          }else{
             System.out.println("Payment was not successful, please fix the date the booking must be 15 days before the event day "); 
-            System.out.println("The payment must be 15% of the ovarall cost"); 
+            System.out.println("The payment must be 50% of the ovarall cost"); 
             Date =sc.nextLine();
             customerPaid =sc.nextFloat();
 
@@ -214,10 +214,10 @@ public class UserInput {
 
             int choose = sc.nextInt();
 
-            switch (choose) {
+            switch (choose) { /* put this in a method which returns a customer object */
                 case 1:
-                  System.out.println("Enter your Name");
-                  customerName = sc.nextLine();
+                  System.out.println("Enter your Name"); 
+                  customerName = sc.nextLine(); 
                   break;
                 case 2:
                   System.out.println("Enter your Surname");

@@ -36,7 +36,7 @@ public class Logic
     {
         Boolean dateExists = false;
 
-        if (Conn.bookingCheck()) 
+        if (Conn.bookingCheck(FormattedDate)) 
         {
             dateExists = true;
         }

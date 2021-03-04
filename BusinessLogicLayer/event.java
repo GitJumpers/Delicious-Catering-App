@@ -44,4 +44,7 @@ public class event
         this.themeFlag = ThemeFlag;
         this.theme = Theme;
     }
+
+	public event() {
+	}
 }

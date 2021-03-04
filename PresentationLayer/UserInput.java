@@ -16,7 +16,7 @@ public class UserInput {
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Welcome to Delicious-Catering online booking system");
-        System.out.println("To register please fill in the following questions: ");
+        System.out.println("To register please complete the following questions: ");
         System.out.println("---------------------------------------------------------"); 
         //System.out.println(""); 
 
@@ -57,6 +57,8 @@ public class UserInput {
         int Day = sc.nextInt();
         System.out.println("----------------------"); 
 
+        String Date = Year + "/" + Month + "/" + Day;
+
         //check if the day is exist
         //having a problem with date
         //what i  want to do is: i want to check if the date exist, and if it exist i wnat to print that it exist and allowthe user to add new one
@@ -64,17 +66,16 @@ public class UserInput {
 
         //if available
         System.out.println("The date " + Year + "/" + Month + "/" + Day + " Is available for booking...Do you want to book it");
-
-        String Date = Year + "/" + Month + "/" + Day;
-
         String DateAccept = sc.nextLine();
+
+
         if (DateAccept == "Yes") {
             
             //Print generated booking number and notify Miss.Rachael
             System.out.println("Example: 09u876242 is your booking number "); 
 
         } else {
-            // System.out.println("OK"); 
+            System.out.println("OK"); 
         } 
 
         //THIS IS ANOTHER DATE VALUE IN DATE FORM
@@ -125,9 +126,11 @@ public class UserInput {
        } 
        else {
         System.out.println("You have entered a incorrect answer, your answer must be 'Yes' or 'No'");
+        System.out.println("----------------------------------------------------------------------------");
+        System.out.println(" "); 
        }
        }
-       while (exit == false);
+       while (exit = true);
         
     
         System.out.println("Enter Vanue Address");
@@ -152,19 +155,19 @@ public class UserInput {
 
         //output
         System.out.println("The reciept");
+        System.out.println("---------------------------------------------------------"); 
         customer ct = new customer(customerID, null, customerName, customerSurname, customerPhoneNumber);
-        System.out.println("Client Name: " + customerName + 
-        "Client Surname: " + customerSurname +
-        " ID Number: " + customerID+
-         " Phone number: "  + customerPhoneNumber );
-
-         System.out.println( 
-            "Addres: " + Address +
-            "Number or adults: " + adults +
-            "Number or kids: " + Kids +
-            "AdultsFood: " + adultsFood +
-            "KidsFood: " + KidsFood );
-
+        System.out.println("Client Name: " + customerName);
+        System.out.println("Client Last Name: " + customerSurname); 
+        System.out.println("ID Number: " + customerID);
+        System.out.println("Phone number: "  + customerPhoneNumber);  
+        System.out.println(" "); 
+        System.out.println("Addres: " + Address);
+        System.out.println("Number of adults: " + adults); 
+        System.out.println("Number of kids: " + Kids);     
+        System.out.println("Adults Food: " + adultsFood); 
+        System.out.println("Kids Food: " + KidsFood);     
+            
          
         System.out.println(" Type of Event:  " + eventType + 
         "Date or the event: "+ Date +
@@ -185,7 +188,7 @@ public class UserInput {
          }
 
          
-        //making changes
+        //making changes to input
         System.out.println("would you like to make changes:  ");
         String ans =sc.nextLine();
         if (ans == "Yes") {
@@ -213,41 +216,41 @@ public class UserInput {
 
             switch (choose) {
                 case 1:
-                System.out.println("Enter your Name");
-                customerName = sc.nextLine();
+                  System.out.println("Enter your Name");
+                  customerName = sc.nextLine();
                   break;
                 case 2:
-                System.out.println("Enter your Surname");
-                customerSurname = sc.nextLine();
+                  System.out.println("Enter your Surname");
+                  customerSurname = sc.nextLine();
                   break;
                 case 3:
-                System.out.println("Enter your IdNumber");
-                customerID= sc.nextInt();
+                  System.out.println("Enter your IdNumber");
+                  customerID= sc.nextInt();
                   break;
                 case 4:
-                System.out.println("Enter your PhoneNumber");
-                customerPhoneNumber= sc.nextInt();
+                  System.out.println("Enter your PhoneNumber");
+                  customerPhoneNumber= sc.nextInt();
                   break;
                 case 5:
-                System.out.println(" Enter the type of event :  'Wedding','Birthday parties', ' baptism', 'Year-end function'");
-                eventType = sc.nextLine();
+                  System.out.println(" Enter the type of event :  'Wedding','Birthday parties', ' baptism', 'Year-end function'");
+                  eventType = sc.nextLine();
                   break;
                 case 6:
-                System.out.println("Enter the Date  of the event: (DD-MM-YYYY-HR-MIN-S) ");
-                Date = sc.nextLine();
+                  System.out.println("Enter the Date  of the event: (DD-MM-YYYY-HR-MIN-S) ");
+                  Date = sc.nextLine();
         
-                //call a class from the BusinessLayer and Declare it object
-                Logic date2 = new Logic();
-                //looks like there is only place for one date in logic layer, how to overwrite?
+                  //call a class from the BusinessLayer and Declare it object
+                  Logic date2 = new Logic();
+                  //looks like there is only place for one date in logic layer, how to overwrite?
 
-                        if(date.oneBookingDayCheck(Date)) 
-                {
-                    System.out.println("That day is already booked, Please enter another Date:");
-                    Date = sc.nextLine();
-                }
-                else{
-                System.out.println("The day that you have choosen is " +Date);
-                }
+                  if(date.oneBookingDayCheck(Date)) 
+                    {
+                        System.out.println("That day is already booked, Please enter another Date:");
+                        Date = sc.nextLine();
+                    }
+                  else{
+                    System.out.println("The day that you have choosen is: " + Date);
+                      }
                   break;
                 case 7:
                 //Decoration
@@ -259,66 +262,66 @@ public class UserInput {
 
                 //if statement that will ask fot the theme if the client said yes, but if it said no it move to date
                 //needs a do while???
-                if (decoration == "Yes"){
+                    if (decoration == "Yes"){
 
-                    //Ask Questions about decoration spesifications
-                    System.out.println("Enter the theme");
-                    String theme = sc.nextLine();
-                    exit = true;
+                        //Ask Questions about decoration spesifications
+                        System.out.println("Enter the theme");
+                        String theme = sc.nextLine();
+                        exit = true;
 
-                }
-                else if (decoration == "No" ){
-                    System.out.println("OK");
-                    exit = true;
-                } 
-                else {
-                    System.out.println("You have entered a incorrect answer, your answer must be 'Yes' or 'No'");
-                }
-                }
-                while (exit == false);
-                  break;
+                    }
+                    else if (decoration == "No" ){
+                        System.out.println("OK");
+                        exit = true;
+                    } 
+                    else {
+                        System.out.println("You have entered a incorrect answer, your answer must be 'Yes' or 'No'");
+                    }
+                    }
+                    while (exit == false);
+                    break;
                 case 8:
-                System.out.println("Enter Venue Address");
-                Address = sc.nextLine();
-                  break;
+                    System.out.println("Enter Venue Address");
+                    Address = sc.nextLine();
+                    break;
                 case 9:
-                System.out.println("Enter Number of adults to cater for:");
-                adults= sc.nextLine();
-                  break;
+                    System.out.println("Enter Number of adults to cater for:");
+                    adults= sc.nextLine();
+                    break;
                 case 10:
-                System.out.println("Enter Number of Kids to cater for:");
-                Kids= sc.nextLine();
-                  break;
+                    System.out.println("Enter Number of Kids to cater for:");
+                    Kids= sc.nextLine();
+                    break;
                 case 11:
-                System.out.println("Type of food for adults: 'chickenMeals', 'steakMeals', 'gammonRoastMeals', 'pastaMeals', 'soupMeals',lobsterBisqueMeals;");
-                adultsFood = sc.nextLine();
-                  break;
+                    System.out.println("Type of food for adults: 'chickenMeals', 'steakMeals', 'gammonRoastMeals', 'pastaMeals', 'soupMeals',lobsterBisqueMeals;");
+                    adultsFood = sc.nextLine();
+                    break;
                 case 12:
-                System.out.println("Type of food for kids: 'hotDogMeals', 'chickenburgerMeals', 'beefBurgerMeals', 'fishChipsMeals', 'pizzaMeals','pieMeals' ");
-                KidsFood = sc.nextLine();
-                  break;
+                    System.out.println("Type of food for kids: 'hotDogMeals', 'chickenburgerMeals', 'beefBurgerMeals', 'fishChipsMeals', 'pizzaMeals','pieMeals' ");
+                    KidsFood = sc.nextLine();
+                    break;
                 case 13:
-                exit = true;
-                  break;
+                    exit = true;
+                    break;
+                default:
+                    System.out.println(""); 
+                  
               }
             }
             while (exit == false);
-            
-            /*changes enumVar = new changes.NAME;
-            MChanges GC = GetGC(enumVar);
-            System.out.println(enumVar);
-            GC.Render();*/
+          }
+
+       else if (ans == "No") {
+        System.out.println("Thank you for trusting us with your event, you will recieve the comfimation message on yor phone within 24hrs ");
+       } 
+       else {
+        System.out.println(" Please enter 'Yes' or 'No'"); 
+        ans = sc.nextLine();
+       }
 
        
-        }
-       else if (ans == "no") {
-        System.out.println("Thank you for trusting us with your event, you will recieve the comfimation message on yor phone within 24hrs ");
-       } else {
-        System.out.println(" Please enter 'Yes' or 'No'"); 
-        ans =sc.nextLine();
-       }
         
-        sc.close();
+    sc.close();
         
     }
 }

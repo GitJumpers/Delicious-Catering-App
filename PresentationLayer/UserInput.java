@@ -158,7 +158,7 @@ public class UserInput {
         
         sc.close();
     }
-
+//FIX SWITCH
    /* public static Mchanges GetGC(changes enumV) {
         customer c= new customer();
         switch (enumV) {

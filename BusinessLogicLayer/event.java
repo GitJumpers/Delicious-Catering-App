@@ -30,11 +30,9 @@ public class event
     Boolean themeFlag;
     String theme;
 
-    public event(int CustomerID, int EventID, int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
+    public event(int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
     {
-        this.customerID = CustomerID;
         this.eventBookingNumber = EventBookingNumber;
-        this.eventID = EventID;
         this.eventName = EventName;
         this.eventType = EventType;
         this.eventVenue = EventVenue;
@@ -45,6 +43,17 @@ public class event
         this.theme = Theme;
     }
 
-	public event() {
-	}
+    public event(int CustomerID, int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
+    {
+        this.customerID = CustomerID;
+        this.eventBookingNumber = EventBookingNumber;
+        this.eventName = EventName;
+        this.eventType = EventType;
+        this.eventVenue = EventVenue;
+        this.eventNumberOfPeople = EventNumberOfPeople;
+        this.eventCost = EventCost;
+        this.confirmationStatus = ConfirmationStatus;
+        this.themeFlag = ThemeFlag;
+        this.theme = Theme;
+    }
 }

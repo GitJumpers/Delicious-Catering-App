@@ -12,6 +12,14 @@ public class customer
     String customerPhoneNumber;
     Float customerPaid;
 
+    public customer(Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
+    {
+        this.customerName = CustomerName;
+        this.customerSurname = CustomerSurname;
+        this.customerPhoneNumber = CustomerPhoneNumber;
+        this.customerPaid = CustomerPaid;
+    }
+
     public customer(int CustomerID, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerID = CustomerID;

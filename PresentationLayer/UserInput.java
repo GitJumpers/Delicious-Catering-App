@@ -1,90 +1,133 @@
-
 package PresentationLayer;
 
-//import javax.swing.text.ChangedCharSetException;
+import javax.swing.text.ChangedCharSetException;
 import BusinessLogicLayer.*;
-
-
-//import javax.swing.*;
-//import java.sql.Date;
+import javax.swing.*;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Scanner;
-//import javax.swing.JFrame;
+import javax.swing.JFrame;
 
 
 public class UserInput {
-    // enum changes { NAME, SURNAME, ID, PHONENUMBER, EVENT, DATE, DECORATIONS, ADRESS, NUMBER_OF_ADULTS, NUMBER_OF_KIDS,
-    //     ADULTSFOOD, KIDSFOOD;
-    //}
 
     public static void main(String[] args) throws SQLException {
 
         Scanner sc = new Scanner(System.in);
         
-        System.out.println(" Delicous- Catering");
-        System.out.println(" wellcom To Delicous- Catering");
-        System.out.println("________________________________________________________________________________");
-        System.out.println(" To register please fill in the following questions: ");
+        System.out.println("Welcome to Delicious-Catering online booking system");
+        System.out.println("To register please fill in the following questions: ");
+        System.out.println("---------------------------------------------------------"); 
+        //System.out.println(""); 
 
-        //get user input:Register
-        System.out.println("Enter your Name");
+        //getting user input for registration
+
+        System.out.println("Please enter your first name:"); 
         String customerName = sc.nextLine();
+        System.out.println("============"); 
 
-        System.out.println("Enter your Surname");
+        System.out.println("Please enter your last name:"); 
         String customerSurname = sc.nextLine();
+        System.out.println("============"); 
 
-        System.out.println("Enter your IdNumber");
-        int customerID= sc.nextInt();
+        System.out.println("Please enter your ID-number:");
+        int customerID = sc.nextInt();
+        System.out.println("============"); 
 
-        System.out.println("Enter your PhoneNumber");
-        String customerPhoneNumber= sc.nextLine();
+        System.out.println("Please enter your Phone Number:");
+        int customerPhoneNumber = sc.nextInt();
+        System.out.println("============"); 
         
         //  Pop up message
         new Register();
 
-        // Get user input: Catering
-        System.out.println(" Enter the type of event :  'Wedding','Birthday parties', ' baptism', 'Year-end function'");
-        String eventType = sc.nextLine();
+        System.out.println("---------------------------------------------------------"); 
 
-        System.out.println("Enter the Date  of the event: (DD-MM-YYYY-HR-MIN-S) ");
-        String Date = sc.nextLine();
+        System.out.println(" ");
+        System.out.println("Hallo " + customerName + " " + customerSurname + ", what is the date of youre required catering service?");
+        System.out.println(" ");
 
-        //call a class from the BusinessLayer and Declare it object
-        Logic date = new Logic();
+        //Geting user input: Catering
+        //Get date from user
+        System.out.println("Enter the year: "); 
+        int Year = sc.nextInt();
+        System.out.println("Enter the month: "); 
+        int Month = sc.nextInt();
+        System.out.println("Enter the day: "); 
+        int Day = sc.nextInt();
+        System.out.println("----------------------"); 
 
-        //  check if the day is exist
+        //check if the day is exist
         //having a problem with date
         //what i  want to do is: i want to check if the date exist, and if it exist i wnat to print that it exist and allowthe user to add new one
         //if it doesnt exist then print that they have choosen this date
 
-        if(date.oneBookingDayCheck(Date)) 
-        {
-            System.out.println("That day is already booked, Please enter another Date:");
-            Date = sc.nextLine();
-        }
-        else{
-        System.out.println("The day that you have choosen is " +Date);
-        }
+        //if available
+        System.out.println("The date " + Year + "/" + Month + "/" + Day + " Is available for booking...Do you want to book it");
+
+        String Date = Year + "/" + Month + "/" + Day;
+
+        String DateAccept = sc.nextLine();
+        if (DateAccept == "Yes") {
+            
+            //Print generated booking number and notify Miss.Rachael
+            System.out.println("Example: 09u876242 is your booking number "); 
+
+        } else {
+            // System.out.println("OK"); 
+        } 
+
+        //THIS IS ANOTHER DATE VALUE IN DATE FORM
+
+        // System.out.println("Enter the Date  of the event: (DD-MM-YYYY-HR-MIN-S) ");
+        // String Date = sc.nextLine();
         
+        // if(date.oneBookingDayCheck(Date)) 
+        // {
+        //     System.out.println("That day is already booked, Please enter another Date:");
+        //     Date = sc.nextLine();
+        // }
+        // else{
+        // System.out.println("The day that you have choosen is " +Date);
+        // }
 
-        //decoration
-        System.out.println("Would you like the Delicous- Catering to decorate the venue? ");
-        System.out.println("The answer must be Yes or No!");
-        String decoration = sc.nextLine();
+        //call a class from the BusinessLayer and Declare it object
+        Logic date = new Logic();
 
-        //if statement that will ask fot the theme if the client said yes, but if it said no it move to date
+        //Getting the event type
+        System.out.println(" ");
+        System.out.println("What kind of event will the catering service be required for");
+        System.out.println("Example.... Babtism, Wedding, Birthday party or Year-end function");
+        String eventType = sc.nextLine();
+        System.out.println(" ");    
+        
+        //Decoration
+        String decoration;
+        boolean exit = false;
+        do{
+        System.out.println("Would you like the Delicous-Catering to decorate the venue?");
+        System.out.println("The answer must be 'Yes' or 'No'");
+        decoration = sc.nextLine();
+
+       //if statement that will ask fot the theme if the client said yes, but if it said no it move to date
+       //needs a do while???
        if (decoration == "Yes"){
-        
+
+        //Ask Questions about decoration spesifications
         System.out.println("Enter the theme");
         String theme = sc.nextLine();
+        exit = true;
 
        }
-       else if (decoration == "NO" ){
-        System.out.println("Thank you for answer");
+       else if (decoration == "No" ){
+        System.out.println("OK");
+        exit = true;
        } 
        else {
-        System.out.println("You have entered incorrect answer, your answer must be 'no' or 'yes'");
+        System.out.println("You have entered a incorrect answer, your answer must be 'Yes' or 'No'");
        }
+       }
+       while (exit == false);
         
     
         System.out.println("Enter Vanue Address");
@@ -125,7 +168,7 @@ public class UserInput {
          
         System.out.println(" Type of Event:  " + eventType + 
         "Date or the event: "+ Date +
-         "Decor:" + decoration+
+         "Decor:" + decoration +
          "The overall total for the event is :" +date.discountCheck(People, null));
 
          System.out.println("Enter the amount you would like to deposit: ");
@@ -147,7 +190,7 @@ public class UserInput {
         String ans =sc.nextLine();
         if (ans == "Yes") {
 
-            boolean exit = false;
+            exit = false;
             do{
 
             System.out.println("Enter what you would like to change:  ");
@@ -183,7 +226,7 @@ public class UserInput {
                   break;
                 case 4:
                 System.out.println("Enter your PhoneNumber");
-                customerPhoneNumber= sc.nextLine();
+                customerPhoneNumber= sc.nextInt();
                   break;
                 case 5:
                 System.out.println(" Enter the type of event :  'Wedding','Birthday parties', ' baptism', 'Year-end function'");
@@ -207,24 +250,32 @@ public class UserInput {
                 }
                   break;
                 case 7:
-                System.out.println("Would you like the Delicous- Catering to decorate the venue? ");
-                System.out.println("The answer must be Yes or No!");
-                decoration = sc.nextLine();
-        
+                //Decoration
+                    exit = false;
+                    do{
+                    System.out.println("Would you like the Delicous-Catering to decorate the venue?");
+                    System.out.println("The answer must be 'Yes' or 'No'");
+                    decoration = sc.nextLine();
+
                 //if statement that will ask fot the theme if the client said yes, but if it said no it move to date
-               if (decoration == "Yes"){
-                
-                System.out.println("Enter the theme");
-                String theme = sc.nextLine();
-                //theme doesnt know where he should be
-        
-               }
-               else if (decoration == "NO" ){
-                System.out.println("Thank you for answer");
-               } 
-               else {
-                System.out.println("You have entered incorrect answer, your answer must be 'no' or 'yes'");
-               }
+                //needs a do while???
+                if (decoration == "Yes"){
+
+                    //Ask Questions about decoration spesifications
+                    System.out.println("Enter the theme");
+                    String theme = sc.nextLine();
+                    exit = true;
+
+                }
+                else if (decoration == "No" ){
+                    System.out.println("OK");
+                    exit = true;
+                } 
+                else {
+                    System.out.println("You have entered a incorrect answer, your answer must be 'Yes' or 'No'");
+                }
+                }
+                while (exit == false);
                   break;
                 case 8:
                 System.out.println("Enter Venue Address");

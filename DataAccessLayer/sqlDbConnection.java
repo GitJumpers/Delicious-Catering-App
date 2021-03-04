@@ -131,7 +131,7 @@ public class sqlDbConnection {
     }
         
     //Method will check to see if there are any duplicate bookings on a particular date
-    public static boolean bookingCheck() throws SQLException{
+    public static boolean bookingCheck(String date) throws SQLException{
 
         boolean bFlag = false;
         CallableStatement cStatement = null;
@@ -142,7 +142,7 @@ public class sqlDbConnection {
             Function in SQL server will check to see it there are any duplicate
             dates and will return a boolean value
             */
-            cStatement = connection.prepareCall("{?= call fnCheckAvailDate(?)}");
+            cStatement = connection.prepareCall("{?= call fnCheckAvailDate(" + date + ")}");
             cStatement.registerOutParameter(1, Types.BOOLEAN);
 
             cStatement.execute();

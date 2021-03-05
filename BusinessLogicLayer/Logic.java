@@ -143,7 +143,7 @@ public class Logic
         return allAvailable;
     }
 
-    public adultFood getAdultMealValues()
+    public adultFood getAdultMealValues(adultFood amountOfMeals)
     {
         //classes
 
@@ -154,34 +154,53 @@ public class Logic
         int pastaCost = 25;
         int soupCost = 15;
         int lobsterBisqueCost = 70;
-        //methods
 
-        adultFood adultFoodCost = new adultFood();
-        return adultFoodCost;
+        //methods
+        amountOfMeals.chickenMeals = amountOfMeals.chickenMeals * chickenCost;
+        amountOfMeals.steakMeals = amountOfMeals.steakMeals * steakCost;
+        amountOfMeals.gammonRoastMeals = amountOfMeals.gammonRoastMeals * gammonRoastCost;
+        amountOfMeals.pastaMeals = amountOfMeals.pastaMeals * pastaCost;
+        amountOfMeals.soupMeals = amountOfMeals.soupMeals * soupCost;
+        amountOfMeals.lobsterBisqueMeals = amountOfMeals.lobsterBisqueMeals * lobsterBisqueCost;
+
+        return amountOfMeals;
     }
 
-    public childFood getChildMealValues()
+    public childFood getChildMealValues(childFood amountOfMeals)
     {
         //classes
-
+        
         //vars
-
+        int hotDogCost = 10;
+        int chickenburgerCost = 20;
+        int beefBurgerCost = 20;
+        int fishChipsCost = 30;
+        int pizzaCost = 25;
+        int pieCost = 10;
 
         //methods
+        amountOfMeals.hotDogMeals = amountOfMeals.hotDogMeals * hotDogCost;
+        amountOfMeals.chickenburgerMeals = amountOfMeals.chickenburgerMeals * chickenburgerCost;
+        amountOfMeals.beefBurgerMeals = amountOfMeals.beefBurgerMeals * beefBurgerCost;
+        amountOfMeals.fishChipsMeals = amountOfMeals.fishChipsMeals * fishChipsCost;
+        amountOfMeals.pizzaMeals = amountOfMeals.pizzaMeals * pizzaCost;
+        amountOfMeals.pieMeals = amountOfMeals.pieMeals * pieCost;
+
+        return amountOfMeals;
     }
 
 
     //this method is used to calculate the cost of the event
-    public float calculatEventCosts()
+    public float calculateEventCosts(int NumberOfPeople, adultFood adultAmount, childFood childAmount)
     {
         //classes
 
         //vars
         float eventCost = 0;
-
+        float entryCost = 100; //default number if 100 can change to any figure
 
         //method
-
+        eventCost = (NumberOfPeople * entryCost) + adultAmount.sumTotal() + childAmount.sumTotal();
 
 
         return eventCost;

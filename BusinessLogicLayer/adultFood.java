@@ -18,4 +18,14 @@ public class adultFood extends food
         this.soupMeals = SoupMeals;
         this.lobsterBisqueMeals = LobsterBisqueMeals;
     }
+
+    @Override
+    public int sumTotal()
+    {
+        int total = 0;
+
+        total = chickenMeals + steakMeals + gammonRoastMeals + pastaMeals + soupMeals + lobsterBisqueMeals;
+
+        return total;
+    }
 }

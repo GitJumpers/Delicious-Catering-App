@@ -10,4 +10,5 @@ public abstract class food
     int vegetarianMealAmount;
     int veganMealAmount;
 
+    public abstract int sumTotal();
 }

@@ -18,4 +18,14 @@ public class childFood extends food
         this.pizzaMeals = PizzaMeals;
         this.pieMeals = PieMeals;
     }
+
+    @Override
+    public int sumTotal()
+    {
+        int total = 0;
+
+        total = hotDogMeals + chickenburgerMeals + beefBurgerMeals + fishChipsMeals + pizzaMeals + pieMeals;
+
+        return total;
+    }
 }

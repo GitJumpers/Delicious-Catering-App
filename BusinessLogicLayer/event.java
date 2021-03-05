@@ -31,20 +31,23 @@ public class event
     Boolean themeFlag;
     String theme;
 
-    public event(String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Float EventPaid, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
+    //input constructor
+    public event(String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ThemeFlag, String Theme, boolean DecorationFlag, String DecorationDetails)
     {
         this.eventName = EventName;
         this.eventType = EventType;
         this.eventVenue = EventVenue;
         this.eventNumberOfPeople = EventNumberOfPeople;
         this.eventCost = EventCost;
-        this.eventPaid = EventPaid;
         
-        this.confirmationStatus = ConfirmationStatus;
         this.themeFlag = ThemeFlag;
         this.theme = Theme;
+
+        this.decorationFlag = DecorationFlag;
+        this.decorationDetails = DecorationDetails;
     }
 
+    //output constructor
     public event(int CustomerID, int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
     {
         this.customerID = CustomerID;

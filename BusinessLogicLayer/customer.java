@@ -11,6 +11,7 @@ public class customer
     String customerSurname;
     String customerPhoneNumber;
 
+    //input constructor
     public customer(String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerName = CustomerName;
@@ -18,6 +19,7 @@ public class customer
         this.customerPhoneNumber = CustomerPhoneNumber;
     }
 
+    //output constructor
     public customer(int CustomerID, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerID = CustomerID;

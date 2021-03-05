@@ -10,15 +10,15 @@ public class event
     //The total number of people?
     //proposed system must generate a booking number so the client can check the status of the booking or can update the menu.
     
-    int eventID;
-    int eventBookingNumber;
-    String eventDate;
-    String eventName;
-    String eventType;
-    String eventVenue;
-    int eventNumberOfPeople;
-    Float eventCost;
-    Float eventPaid;
+    public int eventID;
+    public int eventBookingNumber;
+    public String eventDate;
+    public String eventName;
+    public String eventType;
+    public String eventVenue;
+    public int eventNumberOfPeople;
+    public Float eventCost;
+    public Float eventPaid;
 
 
     boolean confirmationStatus;
@@ -32,8 +32,9 @@ public class event
     String theme;
 
     //input constructor
-    public event(String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ThemeFlag, String Theme, boolean DecorationFlag, String DecorationDetails)
+    public event(String EventDate, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ThemeFlag, String Theme, boolean DecorationFlag, String DecorationDetails)
     {
+        this.eventDate = EventDate;
         this.eventName = EventName;
         this.eventType = EventType;
         this.eventVenue = EventVenue;

@@ -1,10 +1,13 @@
 package PresentationLayer;
 
 import BusinessLogicLayer.*;
+import DataAccessLayer.sqlDbConnection;
+
+
 import javax.swing.text.ChangedCharSetException;
 import javax.swing.*;
 import java.sql.Date;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
@@ -19,19 +22,19 @@ public class MaxIdea
 
 
         //variables
-        String formatDate;
+        
 
         //methods
 
         WelcomeMsg(); //start of program
         customer client = getCustomerInfo();  //gets Initial customer info
+        // logicController.storeCustomer(client); /* uncomment when method is fixed */
         event eventObjInfo = getEventInfo();  //gets Initial event info
+        // logicController.storeEvent(eventObjInfo);
 
+        
 
-        formatDate = dateConfirm();
-
-
-
+        System.out.println(eventObjInfo.eventCost);
         //closing 
         SC.close();
     }
@@ -94,17 +97,21 @@ public class MaxIdea
         return formatDate;
     }
 
-    static String dateConfirm()
+    static String dateConfirm() throws SQLException
     {
         //classes
         SC = new Scanner(System.in);
-
+        Logic LC = new Logic();
         //vars
         boolean dateConfirmFlag = false;
         String newDate = getFunctionDate();
-
-        //method
-
+        // boolean oneDayCheck = LC.oneBookingDayCheck(newDate);            /* This checks for One booking a day VERY IMPORTANT!!!! */
+        // //method
+        // while (oneDayCheck == false) 
+        // {
+        //     newDate = getFunctionDate();
+        //     oneDayCheck = LC.oneBookingDayCheck(newDate);
+        // }
         
         while (dateConfirmFlag != true)
         {
@@ -132,17 +139,20 @@ public class MaxIdea
         return newDate;
     }
 
-    static event getEventInfo()
+    static event getEventInfo() throws SQLException
     {
         //classes
+        Logic LC = new Logic();
         SC = new Scanner(System.in);
         //vars
         boolean ThemeFlag = false;
         boolean DecorationFlag = false;
         boolean loopEnd = false;
         boolean loopEnd2 = false;
-        //method
         
+        //method
+        String formatDate = dateConfirm();
+
         System.out.println("Enter event name: ");
         String EventName = SC.nextLine();
 
@@ -200,7 +210,7 @@ public class MaxIdea
         //decoration parameters
         do 
         {
-            System.out.println("Do you have a theme? Y or N");
+            System.out.println("Do you have decorations? Y or N");
             String ThemeAnswer = SC.nextLine().toLowerCase();
             
             switch (ThemeAnswer) 
@@ -234,13 +244,50 @@ public class MaxIdea
         }
 
 
+        //process adultFood values
+        System.out.println("Number of chicken meals: ");
+        int ChickenMeals = SC.nextInt();
+        System.out.println("Number of Steak Meals: ");
+        int SteakMeals = SC.nextInt();
+        System.out.println("Number of GammonRoast Meals: ");
+        int GammonRoastMeals = SC.nextInt();
+        System.out.println("Number of Pasta Meals: ");
+        int PastaMeals = SC.nextInt();
+        System.out.println("Number of Soup Meals: ");
+        int SoupMeals = SC.nextInt();
+        System.out.println("Number of LobsterBisque Meals: ");
+        int LobsterBisqueMeals = SC.nextInt();
 
-        Float EventCost = SC.nextFloat();
-        /*put in a method to calculate eventCost based off of previous parameters */
+        adultFood numberOfAdultMeals = new adultFood(ChickenMeals, SteakMeals, GammonRoastMeals, PastaMeals, SoupMeals, LobsterBisqueMeals);
+
+        adultFood adultMealCost = LC.getAdultMealValues(numberOfAdultMeals);
+
+
+        //process childFood values
+        System.out.println("Number of HotDog Meals: ");
+        int HotDogMeals = SC.nextInt();
+        System.out.println("Number of Chickenburger Meals: ");
+        int ChickenburgerMeals = SC.nextInt();
+        System.out.println("Number of BeefBurger Meals: ");
+        int BeefBurgerMeals = SC.nextInt();
+        System.out.println("Number of FishChips Meals: ");
+        int FishChipsMeals = SC.nextInt();
+        System.out.println("Number of Pizza Meals: ");
+        int PizzaMeals = SC.nextInt();
+        System.out.println("Number of Pie Meals: ");
+        int PieMeals = SC.nextInt();
+
+        childFood numberOfChildMeals = new childFood(HotDogMeals, ChickenburgerMeals, BeefBurgerMeals, FishChipsMeals, PizzaMeals, PieMeals);
+
+        childFood childMealCost = LC.getChildMealValues(numberOfChildMeals);
+        //final calculation
+        Float EventCost = LC.calculateEventCosts(EventNumberOfPeople, adultMealCost, childMealCost);
 
 
 
-        event eventInfo = new event(EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ThemeFlag, Theme, DecorationFlag, DecorationDetails);
+        event eventInfo = new event(formatDate, EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ThemeFlag, Theme, DecorationFlag, DecorationDetails);
         return eventInfo;
     }
+
+
 }

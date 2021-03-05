@@ -13,11 +13,28 @@ public class Logic
     //class's
     sqlDbConnection Conn = new sqlDbConnection();
     
+    
     //variables
 
 
-
     //methods
+
+    public void storeCustomer(customer details) /* remove customer ID, booking number and customer Paid;*/
+    {
+        Conn.insertCustomer(details.CustomerID, BookingNumber, CustomerPaid, CustomerName, CustomerSurname, CustomerPhoneNumber);
+    }
+
+    public void storeEvent(event details) /* remove customer ID, eventId;*/
+    {
+        Conn.insertEvent(details.CustomerID, EventID, EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ConfirmationStatus, ThemeFlag, Theme);
+    }
+
+    public customer getCustomerinput(customer client)
+    {
+        return client;
+    }
+
+
     //setDate format
     public String DateFormat(int day,int month,int year, int hours, int minutes, int seconds)
     {

@@ -6,10 +6,10 @@ public class customer
     
     //Once the booking has taken place she gives a booking number.
     //The client must be able to register into the system with required details such as name, surname and phone number etc.
-    int customerID;
-    String customerName;
-    String customerSurname;
-    String customerPhoneNumber;
+    public int customerID;
+    public String customerName;
+    public String customerSurname;
+    public String customerPhoneNumber;
 
     //input constructor
     public customer(String CustomerName, String CustomerSurname,String CustomerPhoneNumber)

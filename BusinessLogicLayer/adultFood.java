@@ -8,4 +8,14 @@ public class adultFood extends food
     int pastaMeals;
     int soupMeals;
     int lobsterBisqueMeals;
+
+    public adultFood(int ChickenMeals, int SteakMeals, int GammonRoastMeals, int PastaMeals, int SoupMeals, int LobsterBisqueMeals)
+    {
+        this.chickenMeals = ChickenMeals;
+        this.steakMeals = SteakMeals;
+        this.gammonRoastMeals = GammonRoastMeals;
+        this.pastaMeals = PastaMeals;
+        this.soupMeals = SoupMeals;
+        this.lobsterBisqueMeals = LobsterBisqueMeals;
+    }
 }

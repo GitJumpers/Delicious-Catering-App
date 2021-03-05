@@ -7,8 +7,6 @@ public abstract class food
     //Food- selection from the menu
     int eventID;
     int numberOfDishes;
-    Boolean includeVegan;
-    Boolean includevegetarian;
     int vegetarianMealAmount;
     int veganMealAmount;
 

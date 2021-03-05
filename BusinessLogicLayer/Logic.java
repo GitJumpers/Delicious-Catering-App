@@ -104,7 +104,7 @@ public class Logic
     //Miss. Raheal should be able to see all her bookings,
     public ArrayList<String> viewAllBookings()
     {   
-        ArrayList<String> allBookings = Conn.viewEvents(); /* replace with sql funciton */
+        ArrayList<String> allBookings = Conn.viewEvents(); 
 
         return allBookings;
     }
@@ -112,14 +112,14 @@ public class Logic
     //see all confirmed/non confirmed bookings
     public ArrayList<String> viewAllConfirmedCases()
     {
-        ArrayList<String> viewAllCOnfirmed = Conn.viewConfirmedBookings(1);  /* replace with sql funciton */
+        ArrayList<String> viewAllCOnfirmed = Conn.viewConfirmedBookings(1);  
 
         return viewAllCOnfirmed;
     }
 
     public ArrayList<String> viewAllNonConfirmedCases()
     {
-        ArrayList<String> viewAllNonCOnfirmed = Conn.viewConfirmedBookings(0);  /* replace with sql funciton */
+        ArrayList<String> viewAllNonCOnfirmed = Conn.viewConfirmedBookings(0); 
 
         return viewAllNonCOnfirmed;
     }
@@ -138,8 +138,52 @@ public class Logic
     //show available dates for customers
     public ArrayList<String> viewAvailableDates()
     {
-        ArrayList<String> allAvailable = new ArrayList<String>(); /* replace with sql funciton */
+        ArrayList<String> allAvailable = new ArrayList<String>(); 
 
         return allAvailable;
+    }
+
+    public adultFood getAdultMealValues()
+    {
+        //classes
+
+        //vars
+        int chickenCost = 25;
+        int steakCost = 50;
+        int gammonRoastCost = 30;
+        int pastaCost = 25;
+        int soupCost = 15;
+        int lobsterBisqueCost = 70;
+        //methods
+
+        adultFood adultFoodCost = new adultFood();
+        return adultFoodCost;
+    }
+
+    public childFood getChildMealValues()
+    {
+        //classes
+
+        //vars
+
+
+        //methods
+    }
+
+
+    //this method is used to calculate the cost of the event
+    public float calculatEventCosts()
+    {
+        //classes
+
+        //vars
+        float eventCost = 0;
+
+
+        //method
+
+
+
+        return eventCost;
     }
 }

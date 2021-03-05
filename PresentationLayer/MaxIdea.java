@@ -25,11 +25,12 @@ public class MaxIdea
 
         WelcomeMsg(); //start of program
         customer client = getCustomerInfo();  //gets Initial customer info and stores customer Paid to zero
-        /* Ask if above constructor should rather put paid amount under event */
 
-        new Register(); //shows user they have been registered through a jframe pop-up
 
+        
         formatDate = dateConfirm();
+
+
 
         //closing 
         SC.close();
@@ -60,10 +61,9 @@ public class MaxIdea
         String customerPhoneNumber = SC.nextLine(); 
         System.out.println("============"); 
 
-        Float customerPaid = 0f;
-
         
         customer cust = new customer(customerName, customerSurname, customerPhoneNumber);
+        new Register(); //shows user they have been registered through a jframe pop-up
         return cust;
     }
 
@@ -131,4 +131,6 @@ public class MaxIdea
 
         return newDate;
     }
+
+
 }

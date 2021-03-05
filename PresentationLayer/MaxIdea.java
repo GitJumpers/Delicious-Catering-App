@@ -30,7 +30,6 @@ public class MaxIdea
         new Register(); //shows user they have been registered through a jframe pop-up
 
         formatDate = dateConfirm();
-        System.out.println(formatDate);
 
         //closing 
         SC.close();
@@ -64,7 +63,7 @@ public class MaxIdea
         Float customerPaid = 0f;
 
         
-        customer cust = new customer(customerPaid, customerName, customerSurname, customerPhoneNumber);
+        customer cust = new customer(customerName, customerSurname, customerPhoneNumber);
         return cust;
     }
 

@@ -10,22 +10,19 @@ public class customer
     String customerName;
     String customerSurname;
     String customerPhoneNumber;
-    Float customerPaid;
 
-    public customer(Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
+    public customer(String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerName = CustomerName;
         this.customerSurname = CustomerSurname;
         this.customerPhoneNumber = CustomerPhoneNumber;
-        this.customerPaid = CustomerPaid;
     }
 
-    public customer(int CustomerID, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
+    public customer(int CustomerID, String CustomerName, String CustomerSurname,String CustomerPhoneNumber)
     {
         this.customerID = CustomerID;
         this.customerName = CustomerName;
         this.customerSurname = CustomerSurname;
         this.customerPhoneNumber = CustomerPhoneNumber;
-        this.customerPaid = CustomerPaid;
     }
 }

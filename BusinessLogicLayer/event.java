@@ -18,6 +18,7 @@ public class event
     String eventVenue;
     int eventNumberOfPeople;
     Float eventCost;
+    Float eventPaid;
 
 
     boolean confirmationStatus;
@@ -30,7 +31,7 @@ public class event
     Boolean themeFlag;
     String theme;
 
-    public event(int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
+    public event(int EventBookingNumber, String EventName, String EventType,String EventVenue, int EventNumberOfPeople, Float EventCost, Float EventPaid, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme)
     {
         this.eventBookingNumber = EventBookingNumber;
         this.eventName = EventName;
@@ -38,6 +39,8 @@ public class event
         this.eventVenue = EventVenue;
         this.eventNumberOfPeople = EventNumberOfPeople;
         this.eventCost = EventCost;
+        this.eventPaid = EventPaid;
+        
         this.confirmationStatus = ConfirmationStatus;
         this.themeFlag = ThemeFlag;
         this.theme = Theme;

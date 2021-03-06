@@ -426,5 +426,30 @@ public class MaxIdea
         return choose;
     }
 
+    static void Confermation(event info)
+    {
+        //event output constructor date
+        Logic LC = new Logic();
+        
+        String eventDate; 
+
+        SimpleDateFormat Date = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+
+        Date eventDateFormat = new Date();
+        
+
+    }
+
+    static void Payment(event info)
+    {
+        //event output constructer paidAmount
+        
+        Logic LC = new Logic();
+
+        Float paidAmount;
+        Float amountOutstanding;
+
+        Float halfOutStandingAmount = amountOutstanding * 0.5f;
+    }
 
 }

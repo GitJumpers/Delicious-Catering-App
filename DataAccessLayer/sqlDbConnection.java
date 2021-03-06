@@ -87,8 +87,8 @@ public class sqlDbConnection {
     }
 
     //Creating method to insert event information
-    public void insertEvent(int CustomerID, int EventID, String EventName, String EventType,String EventVenue, int EventNumberOfPeople
-    , Float EventCost, Boolean ConfirmationStatus, Boolean ThemeFlag, String Theme) {  
+    public void insertEvent(String EventDate, String EventName, String EventType,String EventVenue, int EventNumberOfPeople,
+     Float EventCost, Boolean ThemeFlag, String Theme, boolean DecorationFlag, String DecorationDetails) {  
 
         try (Connection connection = DriverManager.getConnection(connectionUrl);
         Statement statement = connection.createStatement()){

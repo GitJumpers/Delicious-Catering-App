@@ -7,6 +7,7 @@ import DataAccessLayer.sqlDbConnection;
 import javax.swing.text.ChangedCharSetException;
 import javax.swing.*;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.sql.*;
 import java.util.Scanner;
 import javax.swing.JFrame;
@@ -55,13 +56,13 @@ public class MaxIdea
                     event eventInfo = getEventInfo();
                         break;
                     case 2:
-                    //do you need another menu?
+                    changes();
                         break;
                     case 3:
-                    //dont think so
+                    Confermation();
                         break;
                     case 4:
-                    //make payment
+                    Payment();
                         break;
                     case 5:
                     loopEnd3 = true;
@@ -389,7 +390,7 @@ public class MaxIdea
 
     }
 
-    public void changes() throws SQLException{
+    static void changes() throws SQLException{
         SC = new Scanner(System.in);
             boolean loopEnd4 = false;
 
@@ -420,7 +421,7 @@ public class MaxIdea
                 loopEnd4 = true;
                     break;
                 case 5:
-                menu();
+                
                     break;           
                 default:
                     break;
@@ -429,5 +430,33 @@ public class MaxIdea
 
     }
 
+    static void Confermation(event info)
+    {
+        //event output constructor date
+        Logic LC = new Logic();
+        
+        String eventDate; 
+
+        SimpleDateFormat Date = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+
+        Date eventDateFormat = new Date();
+           
+
+    }
+
+    static void Payment(event info)
+    {
+        //event output constructer paidAmount
+        Logic LC = new Logic();
+
+        Float paidAmount;
+        Float amountOutstanding;
+
+        Float halfOutStandingAmount = amountOutstanding * 0.5f;
+
+
+    }
+
 
 }
+

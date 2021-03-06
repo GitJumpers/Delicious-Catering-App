@@ -22,7 +22,7 @@ public class MaxIdea
 
 
         //variables
-        
+        boolean loopEnd3 = false;
 
         //methods
 
@@ -33,44 +33,42 @@ public class MaxIdea
         // logicController.storeEvent(eventObjInfo);
 
         //make this a method
-        
-            boolean loopEnd3 = false;
+        do
+        {
+        System.out.println("Menu: ");
+        System.out.println("================================================");
+        System.out.println("1. Make a new booking");
+        System.out.println("2. Edit a booking");
+        System.out.println("3. Check confermation status");
+        System.out.println("4. Make a payment");             
+        System.out.println("5. Exit");
+        int choose = SC.nextInt(); 
 
-            
-            do
+            switch (choose) 
             {
-            System.out.println("Menu: ");
-            System.out.println("================================================");
-            System.out.println("1. Make a new booking");
-            System.out.println("2. Edit a booking");
-            System.out.println("3. Check confermation status");
-            System.out.println("4. Make a payment");             
-            System.out.println("5. Exit");
-            int choose = SC.nextInt(); 
+                case 1:
+                customer client = getCustomerInfo();
+                event eventInfo = getEventInfo();
+                    break;
+                case 2:
+                //do you need another menu?
+                    break;
+                case 3:
+                //dont think so
+                    break;
+                case 4:
+                //make payment
+                    break;
+                case 5:
+                loopEnd3 = true;
+                    break;
 
-                switch (choose) 
-                {
-                    case 1:
-                    customer client = getCustomerInfo();
-                    event eventInfo = getEventInfo();
-                        break;
-                    case 2:
-                    //do you need another menu?
-                        break;
-                    case 3:
-                    //dont think so
-                        break;
-                    case 4:
-                    //make payment
-                        break;
-                    case 5:
-                    loopEnd3 = true;
-                        break;
+                default:
+                    break;
+            }
 
-                    default:
-                        break;
-                }
-            } while (loopEnd3 != true);
+
+        } while (loopEnd3 != true);
 
 
 

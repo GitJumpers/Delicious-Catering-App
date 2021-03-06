@@ -62,4 +62,11 @@ public class event
         this.themeFlag = ThemeFlag;
         this.theme = Theme;
     }
+
+
+    //empty contructor 
+    public event()
+    {
+
+    }
 }

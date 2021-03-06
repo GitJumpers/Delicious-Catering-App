@@ -27,4 +27,10 @@ public class customer
         this.customerSurname = CustomerSurname;
         this.customerPhoneNumber = CustomerPhoneNumber;
     }
+
+    //empty contructor 
+    public customer()
+    {
+
+    }
 }

@@ -21,12 +21,12 @@ public class Logic
 
     public void storeCustomer(customer details) /* remove customer ID, booking number and customer Paid;*/
     {
-        Conn.insertCustomer(details.CustomerID, BookingNumber, CustomerPaid, CustomerName, CustomerSurname, CustomerPhoneNumber);
+        Conn.insertCustomer(details.customerName, details.customerSurname, details.customerPhoneNumber);
     }
 
     public void storeEvent(event details) /* remove customer ID, eventId;*/
     {
-        Conn.insertEvent(details.CustomerID, EventID, EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ConfirmationStatus, ThemeFlag, Theme);
+        Conn.insertEvent(details.eventDate, details.eventName, details.eventType, details.eventVenue, details.eventNumberOfPeople, details.eventCost, details.themeFlag, details.theme, details.decorationFlag, details.decorationDetails);
     }
 
     public customer getCustomerinput(customer client)

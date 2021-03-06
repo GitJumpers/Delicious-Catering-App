@@ -120,6 +120,20 @@ public class sqlDbConnection {
             e.printStackTrace();
         }  
     }
+    //Creating method to update EventPaid in DB
+    public void updateEventPaid(String EventDate, Float EventPaid) {  
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //SQL Insert statement
+            String insertEventSql = "UPDATE tblEvents SET EventPaid = " + EventPaid + " WHERE EventDate = " + EventDate;
+            statement.executeUpdate(insertEventSql);
+
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+    }
     //Creating Method to view events
     public ArrayList<String> viewEvents() {     
         ResultSet rsResult = null;

@@ -222,4 +222,9 @@ public class Logic
 
         return eventCost;
     }
+
+    public updateEventPaidInDB()
+    {
+
+    }
 }

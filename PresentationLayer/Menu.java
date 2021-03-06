@@ -13,7 +13,7 @@ public enum Menu {
        this.label = lbl;
     }
     //Method will be invoked and will print menu items which the user will wish to act upon
-    public void DisplayMenu() {
+    public static void DisplayMenu() {
         System.out.println("Main Menu");
         System.out.println("=========================================================");
         System.out.println(Menu.NEW.label);

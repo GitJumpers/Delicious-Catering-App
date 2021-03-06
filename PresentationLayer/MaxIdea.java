@@ -399,7 +399,7 @@ public class MaxIdea
     static int menuOptions()
     {
         SC = new Scanner(System.in);
-
+        /*
         System.out.println("Menu: ");
         System.out.println("================================================");
         System.out.println("1. Add a customer");
@@ -408,6 +408,10 @@ public class MaxIdea
         System.out.println("4. Check confermation status");
         System.out.println("5. Make a payment");             
         System.out.println("6. Exit");
+        */
+        //Method will display the values of the enum items
+        Menu.DisplayMenu();
+
         int choose = SC.nextInt(); 
 
         return choose;

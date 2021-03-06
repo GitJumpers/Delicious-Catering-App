@@ -93,9 +93,8 @@ public class sqlDbConnection {
         try (Connection connection = DriverManager.getConnection(connectionUrl);
         Statement statement = connection.createStatement()){
             //SQL Insert statement
-            String insertEventSql = "INSERT INTO tblEvents VALUES(" + CustomerID + "," + EventID + "," + 
-            EventName + "," + EventType + "," + EventVenue + "," + EventNumberOfPeople + "," + EventNumberOfPeople + "," + EventCost
-            + "," + ConfirmationStatus + "," + ThemeFlag + "," + Theme +");";
+            String insertEventSql = "INSERT INTO tblEvents VALUES(" + EventDate + ","+ EventName + "," + EventType + "," + 
+            EventVenue + "," + EventNumberOfPeople + "," + EventCost + "," + ThemeFlag + "," + Theme + "," + DecorationFlag + "," + DecorationDetails + ");";
             statement.executeUpdate(insertEventSql);
 
         } 

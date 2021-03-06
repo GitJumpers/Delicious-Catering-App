@@ -27,10 +27,10 @@ public class MaxIdea
         //methods
 
         WelcomeMsg(); //start of program
-        customer client = new customer(); //gets Initial customer info
-        // logicController.storeCustomer(client); /* uncomment when method is fixed */
+        customer client = getCustomerInfo(); //gets Initial customer info
+        logicController.storeCustomer(client); /* uncomment when method is fixed */
         event eventObjInfo = new event(); //gets Initial event info
-        // logicController.storeEvent(eventObjInfo);
+        
 
 
 
@@ -43,21 +43,19 @@ public class MaxIdea
             switch (choose) 
             {
                 case 1:
-                    client = getCustomerInfo();
+                    eventObjInfo = getEventInfo();
+                    logicController.storeEvent(eventObjInfo);
                     break;
                 case 2:
-                    eventObjInfo = getEventInfo();
-                    break;
-                case 3:
                     //edit a booking
                     break;
-                case 4:
+                case 3:
                     //confirmation payment
                     break;
-                case 5:
+                case 4:
                     //make payment
                     break;
-                case 6:
+                case 5:
                     loopEnd3 = true;
                     break;
 
@@ -432,5 +430,30 @@ public class MaxIdea
         return choose;
     }
 
+    static void Confermation(event info)
+    {
+        //event output constructor date
+        Logic LC = new Logic();
+        
+        String eventDate; 
+
+        SimpleDateFormat Date = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+
+        Date eventDateFormat = new Date();
+        
+
+    }
+
+    static void Payment(event info)
+    {
+        //event output constructer paidAmount
+        
+        Logic LC = new Logic();
+
+        Float paidAmount;
+        Float amountOutstanding;
+
+        Float halfOutStandingAmount = amountOutstanding * 0.5f;
+    }
 
 }

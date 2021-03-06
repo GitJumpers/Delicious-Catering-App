@@ -321,7 +321,8 @@ public class MaxIdea
 
         childFood childMealCost = LC.getChildMealValues(numberOfChildMeals);
         //final calculation
-        Float EventCost = LC.calculateEventCosts(EventNumberOfPeople, adultMealCost, childMealCost);
+        Float EventInitialCost = LC.calculateEventCosts(EventNumberOfPeople, adultMealCost, childMealCost);
+        Float EventCost = LC.discountCheck(EventNumberOfPeople, EventInitialCost);
 
 
 

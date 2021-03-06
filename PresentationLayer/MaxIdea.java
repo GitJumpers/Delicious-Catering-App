@@ -27,49 +27,46 @@ public class MaxIdea
         //methods
 
         WelcomeMsg(); //start of program
-        //customer client; //gets Initial customer info
+        customer client = new customer(); //gets Initial customer info
         // logicController.storeCustomer(client); /* uncomment when method is fixed */
-        //event eventObjInfo; //gets Initial event info
+        event eventObjInfo = new event(); //gets Initial event info
         // logicController.storeEvent(eventObjInfo);
 
-        //make this a method
+
+
+        /*make this a method if possible */
         do
         {
-        System.out.println("Menu: ");
-        System.out.println("================================================");
-        System.out.println("1. Make a new booking");
-        System.out.println("2. Edit a booking");
-        System.out.println("3. Check confermation status");
-        System.out.println("4. Make a payment");             
-        System.out.println("5. Exit");
-        int choose = SC.nextInt(); 
+            int choose = menuOptions();
 
             switch (choose) 
             {
                 case 1:
-                customer client = getCustomerInfo();
-                event eventInfo = getEventInfo();
+                    client = getCustomerInfo();
                     break;
                 case 2:
-                //do you need another menu?
+                    eventObjInfo = getEventInfo();
                     break;
                 case 3:
-                //dont think so
+                    //edit a booking
                     break;
                 case 4:
-                //make payment
+                    //confirmation payment
                     break;
                 case 5:
-                loopEnd3 = true;
+                    //make payment
+                    break;
+                case 6:
+                    loopEnd3 = true;
                     break;
 
                 default:
+                    System.out.println("Please enter a value between 1 and 6");
                     break;
             }
 
 
         } while (loopEnd3 != true);
-
 
 
 
@@ -79,6 +76,9 @@ public class MaxIdea
         //closing 
         SC.close();
     }
+
+
+
 
     static void WelcomeMsg() 
     {
@@ -344,50 +344,16 @@ public class MaxIdea
     //     this.lobsterBisqueMeals = LobsterBisqueMeals;
     // }
 
-    static void menu(customer client, event eventInfo) throws SQLException{
-            SC = new Scanner(System.in);
-            boolean loopEnd3 = false;
+    static void menu(customer client, event eventInfo) throws SQLException
+    {
+        SC = new Scanner(System.in);
+        boolean loopEnd3 = false;
 
-            
-            do
-            {
-            System.out.println("Menu: ");
-            System.out.println("================================================");
-            System.out.println("1. Make a new booking");
-            System.out.println("2. Edit a booking");
-            System.out.println("3. Check confermation status");
-            System.out.println("4. Make a payment");             
-            System.out.println("5. Exit");
-            int choose = SC.nextInt(); 
-
-            switch (choose) {
-                case 1:
-                client = getCustomerInfo();
-                eventInfo = getEventInfo();
-                    break;
-                case 2:
-                //do you need another menu?
-                    break;
-                case 3:
-                //dont think so
-                    break;
-                case 4:
-                //make payment
-                    break;
-                case 5:
-                loopEnd3 = true;
-                    break;
-                
-                default:
-                    break;
-            }
-            } while (loopEnd3 != true);
             
         
-
     }
 
-    public void changes() throws SQLException{
+    static void editBooking() throws SQLException{
         SC = new Scanner(System.in);
             boolean loopEnd4 = false;
 
@@ -424,7 +390,21 @@ public class MaxIdea
                     break;
             }
             } while (loopEnd4 != true);
+    }
 
+    static int menuOptions()
+    {
+        System.out.println("Menu: ");
+        System.out.println("================================================");
+        System.out.println("1. Add a customer");
+        System.out.println("2. Make a new booking");
+        System.out.println("3. Edit a booking");
+        System.out.println("4. Check confermation status");
+        System.out.println("5. Make a payment");             
+        System.out.println("6. Exit");
+        int choose = SC.nextInt(); 
+
+        return choose;
     }
 
 

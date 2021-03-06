@@ -102,6 +102,24 @@ public class sqlDbConnection {
             e.printStackTrace();
         }  
     }
+    //Creating method to update an event
+    public void updateEvent(String EventDate, String EventName, String EventType,String EventVenue, int EventNumberOfPeople,
+     Float EventCost, Boolean ThemeFlag, String Theme, boolean DecorationFlag, String DecorationDetails) {  
+
+        try (Connection connection = DriverManager.getConnection(connectionUrl);
+        Statement statement = connection.createStatement()){
+            //SQL Insert statement
+            String insertEventSql = "UPDATE tblEvents SET EventDate = " + EventDate + ", EventName = "+ EventName + 
+            ", EventType = " + EventType + ", EventVenue = " + EventVenue + ", EventNumPeople = " + EventNumberOfPeople + 
+            ",EventCost = " + EventCost + ", ThemeConfirm = " + ThemeFlag + ", EventTheme = " + Theme + ", DecorConfirm = " + DecorationFlag + 
+            ",DecorDetails" + DecorationDetails + ");";
+            statement.executeUpdate(insertEventSql);
+
+        } 
+        catch (SQLException e) {
+            e.printStackTrace();
+        }  
+    }
     //Creating Method to view events
     public ArrayList<String> viewEvents() {     
         ResultSet rsResult = null;

@@ -353,47 +353,52 @@ public class MaxIdea
         
     }
 
-    static void editBooking() throws SQLException{
+    static void editBooking() throws SQLException
+    {
+        //classes
         SC = new Scanner(System.in);
-            boolean loopEnd4 = false;
 
-            
-            do
+        //vars
+        boolean loopEnd4 = false;
+
+        //method
+        do
+        {
+        
+        int choose = editMenuOptions();
+
+            switch (choose) 
             {
-            System.out.println("What do you want to change: ");
-            System.out.println("================================================");
-            System.out.println("1. First Name, Last Name or phone number");
-            System.out.println("2. Function Date");
-            System.out.println("3. Event info like, location, venue, decoration, theme or food");          
-            System.out.println("4. Exit");
-            System.out.println("5. Back"); 
-            int choose = SC.nextInt(); 
-
-            switch (choose) {
+            
                 case 1:
-                getCustomerInfo();          
+                    getCustomerInfo(); //edit First Name, Last Name or phone number"
                     break;
+            
                 case 2:
-                getFunctionDate();
-                dateConfirm();
+                    getFunctionDate(); //edit Function Date
+                    dateConfirm();
                     break;
+            
                 case 3:
-                getEventInfo();
+                    getEventInfo(); //Event info like, location, venue, decoration, theme or food
                     break;
+                    
                 case 4:
-                loopEnd4 = true;
+                    loopEnd4 = true;
                     break;
-                case 5:
-                menu();
-                    break;           
+                
+                    
                 default:
                     break;
             }
-            } while (loopEnd4 != true);
+        
+        } while (loopEnd4 != true);
     }
 
     static int menuOptions()
     {
+        SC = new Scanner(System.in);
+
         System.out.println("Menu: ");
         System.out.println("================================================");
         System.out.println("1. Add a customer");
@@ -402,6 +407,21 @@ public class MaxIdea
         System.out.println("4. Check confermation status");
         System.out.println("5. Make a payment");             
         System.out.println("6. Exit");
+        int choose = SC.nextInt(); 
+
+        return choose;
+    }
+
+    static int editMenuOptions()
+    {
+        SC = new Scanner(System.in);
+
+        System.out.println("What do you want to change: ");
+        System.out.println("================================================");
+        System.out.println("1. First Name, Last Name or phone number");
+        System.out.println("2. Function Date");
+        System.out.println("3. Event info like, location, venue, decoration, theme or food");          
+        System.out.println("4. Exit");
         int choose = SC.nextInt(); 
 
         return choose;

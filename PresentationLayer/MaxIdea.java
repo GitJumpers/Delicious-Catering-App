@@ -8,6 +8,7 @@ import javax.swing.text.ChangedCharSetException;
 import javax.swing.*;
 import java.sql.Date;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JFrame;
 
@@ -60,15 +61,27 @@ public class MaxIdea
                     break;
                     
                 case 5:
-                    //viewallbookings
+                    ArrayList<String> allBookings = logicController.viewAllBookings();
+
+                    for (String item : allBookings) {
+                        System.out.println(item);
+                    }
                     break;
 
                 case 6:
-                    //View all confirmed bookings
+                    ArrayList<String> allConfirmedBookings = logicController.viewAllConfirmedCases();
+
+                    for (String item : allConfirmedBookings) {
+                        System.out.println(item);
+                    }
                     break;
 
                 case 7:
-                    //View all nonconfirmed bookings
+                    ArrayList<String> allNonConfirmedBookings = logicController.viewAllNonConfirmedCases();
+
+                    for (String item : allNonConfirmedBookings) {
+                        System.out.println(item);
+                    }
                     break;
 
                 case 8:

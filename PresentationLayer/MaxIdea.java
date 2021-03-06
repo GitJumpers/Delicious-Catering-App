@@ -27,14 +27,57 @@ public class MaxIdea
         //methods
 
         WelcomeMsg(); //start of program
-        customer client = getCustomerInfo();  //gets Initial customer info
+        //customer client; //gets Initial customer info
         // logicController.storeCustomer(client); /* uncomment when method is fixed */
-        event eventObjInfo = getEventInfo();  //gets Initial event info
+        //event eventObjInfo; //gets Initial event info
         // logicController.storeEvent(eventObjInfo);
+
+        //make this a method
+        
+            boolean loopEnd3 = false;
+
+            
+            do
+            {
+            System.out.println("Menu: ");
+            System.out.println("================================================");
+            System.out.println("1. Make a new booking");
+            System.out.println("2. Edit a booking");
+            System.out.println("3. Check confermation status");
+            System.out.println("4. Make a payment");             
+            System.out.println("5. Exit");
+            int choose = SC.nextInt(); 
+
+                switch (choose) 
+                {
+                    case 1:
+                    customer client = getCustomerInfo();
+                    event eventInfo = getEventInfo();
+                        break;
+                    case 2:
+                    //do you need another menu?
+                        break;
+                    case 3:
+                    //dont think so
+                        break;
+                    case 4:
+                    //make payment
+                        break;
+                    case 5:
+                    loopEnd3 = true;
+                        break;
+
+                    default:
+                        break;
+                }
+            } while (loopEnd3 != true);
+
+
+
 
         
 
-        System.out.println(eventObjInfo.eventCost);
+        
         //closing 
         SC.close();
     }
@@ -287,6 +330,103 @@ public class MaxIdea
 
         event eventInfo = new event(formatDate, EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ThemeFlag, Theme, DecorationFlag, DecorationDetails);
         return eventInfo;
+        
+
+
+
+    }
+
+    // public adultFood(int ChickenMeals, int SteakMeals, int GammonRoastMeals, int PastaMeals, int SoupMeals, int LobsterBisqueMeals)
+    // {
+    //     this.chickenMeals = ChickenMeals;
+    //     this.steakMeals = SteakMeals;
+    //     this.gammonRoastMeals = GammonRoastMeals;
+    //     this.pastaMeals = PastaMeals;
+    //     this.soupMeals = SoupMeals;
+    //     this.lobsterBisqueMeals = LobsterBisqueMeals;
+    // }
+
+    static void menu(customer client, event eventInfo) throws SQLException{
+            SC = new Scanner(System.in);
+            boolean loopEnd3 = false;
+
+            
+            do
+            {
+            System.out.println("Menu: ");
+            System.out.println("================================================");
+            System.out.println("1. Make a new booking");
+            System.out.println("2. Edit a booking");
+            System.out.println("3. Check confermation status");
+            System.out.println("4. Make a payment");             
+            System.out.println("5. Exit");
+            int choose = SC.nextInt(); 
+
+            switch (choose) {
+                case 1:
+                client = getCustomerInfo();
+                eventInfo = getEventInfo();
+                    break;
+                case 2:
+                //do you need another menu?
+                    break;
+                case 3:
+                //dont think so
+                    break;
+                case 4:
+                //make payment
+                    break;
+                case 5:
+                loopEnd3 = true;
+                    break;
+                
+                default:
+                    break;
+            }
+            } while (loopEnd3 != true);
+            
+        
+
+    }
+
+    public void changes() throws SQLException{
+        SC = new Scanner(System.in);
+            boolean loopEnd4 = false;
+
+            
+            do
+            {
+            System.out.println("What do you want to change: ");
+            System.out.println("================================================");
+            System.out.println("1. First Name, Last Name or phone number");
+            System.out.println("2. Function Date");
+            System.out.println("3. Event info like, location, venue, decoration, theme or food");          
+            System.out.println("4. Exit");
+            System.out.println("5. Back"); 
+            int choose = SC.nextInt(); 
+
+            switch (choose) {
+                case 1:
+                getCustomerInfo();          
+                    break;
+                case 2:
+                getFunctionDate();
+                dateConfirm();
+                    break;
+                case 3:
+                getEventInfo();
+                    break;
+                case 4:
+                loopEnd4 = true;
+                    break;
+                case 5:
+                menu();
+                    break;           
+                default:
+                    break;
+            }
+            } while (loopEnd4 != true);
+
     }
 
 

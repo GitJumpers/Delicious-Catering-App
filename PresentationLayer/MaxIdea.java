@@ -50,7 +50,7 @@ public class MaxIdea
                     //edit a booking
                     break;
                 case 3:
-                    //confirmation payment
+                    confirmationPayment(eventObjInfo);
                     break;
                 case 4:
                     //make payment
@@ -430,30 +430,48 @@ public class MaxIdea
         return choose;
     }
 
-    static void Confermation(event info)
+    static void confirmationPayment(event info)
     {
+        SC = new Scanner(System.in);
         //event output constructor date
         Logic LC = new Logic();
         
-        String eventDate; 
+        System.out.println("To confirm this event a deposit of 50% of the events cost is required 15 days before the event");
+        Float paidAmount = info.eventCost * 0.5f;
+        System.out.println("The amount required is R" + paidAmount + ". Do you want to process this payment. Please enter y or n");
+        String userInput = SC.nextLine().toLowerCase();
+        boolean acceptablePayment = false;
+        boolean exitFlag = false;
 
-        SimpleDateFormat Date = new SimpleDateFormat("yyyy/MM/dd HH-mm-ss");
+        while (exitFlag == false) 
+        {
+            switch (userInput) 
+            {
+                case "y":
+                    acceptablePayment = LC.processConfirmationPayment(info.eventDate, paidAmount, info.eventCost);
+                    exitFlag = true;
+                    break;
 
-        Date eventDateFormat = new Date();
+                case "n":
+                    exitFlag = true;
+                    break;
+            
+                default:
+                    System.out.println("Please enter y or n");
+                    break;
+            }
+        }
         
-
+        
+        if (acceptablePayment == true) 
+        {
+            System.out.println("The payment was processed successfully!");
+        }
     }
 
     static void Payment(event info)
     {
-        //event output constructer paidAmount
-        
-        Logic LC = new Logic();
-
-        Float paidAmount;
-        Float amountOutstanding;
-
-        Float halfOutStandingAmount = amountOutstanding * 0.5f;
+    
     }
 
 }

@@ -48,12 +48,11 @@ public class sqlDbConnection {
     }
 
     //Creating method to insert customer information
-    public void insertCustomer(int CustomerID, int BookingNumber, Float CustomerPaid, String CustomerName, String CustomerSurname,String CustomerPhoneNumber) {    
+    public void insertCustomer(String CustomerName, String CustomerSurname,String CustomerPhoneNumber) {    
         try (Connection connection = DriverManager.getConnection(connectionUrl);
         Statement statement = connection.createStatement()){
             //SQL Insert statement
-            String insertCustSql = "INSERT INTO tblBookings VALUES(" + CustomerID + "," + BookingNumber + "," + 
-            CustomerPaid + "," + CustomerName + "," + CustomerSurname + "," + CustomerPhoneNumber +");";
+            String insertCustSql = "INSERT INTO tblBookings VALUES(" + CustomerName + "," + CustomerSurname + "," + CustomerPhoneNumber +");";
             statement.executeUpdate(insertCustSql);
 
         } 

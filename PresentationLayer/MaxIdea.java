@@ -490,7 +490,7 @@ public class MaxIdea
     {
         //classes
         SC = new Scanner(System.in);
-
+        Logic LC = new Logic();
         //vars
         boolean exitFlag = false;
 
@@ -506,7 +506,7 @@ public class MaxIdea
             switch (userInput) 
             {
                 case "y":
-                    //store payment in the database
+                    LC.updateEventPaidInDB(info);
                     exitFlag = true;
                     break;
 

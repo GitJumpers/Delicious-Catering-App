@@ -223,8 +223,8 @@ public class Logic
         return eventCost;
     }
 
-    public updateEventPaidInDB()
+    public void updateEventPaidInDB(event info)
     {
-
+        Conn.updateEventPaid(info.eventDate, info.eventCost);
     }
 }

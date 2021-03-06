@@ -447,6 +447,7 @@ public class MaxIdea
     static void Payment(event info)
     {
         //event output constructer paidAmount
+        
         Logic LC = new Logic();
 
         Float paidAmount;

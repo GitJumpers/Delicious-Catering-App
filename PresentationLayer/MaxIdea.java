@@ -53,7 +53,7 @@ public class MaxIdea
                     confirmationPayment(eventObjInfo);
                     break;
                 case 4:
-                    //make payment
+                    Payment(eventObjInfo);
                     break;
                 case 5:
                     loopEnd3 = true;
@@ -472,7 +472,40 @@ public class MaxIdea
 
     static void Payment(event info)
     {
-    
+        //classes
+        SC = new Scanner(System.in);
+
+        //vars
+        boolean exitFlag = false;
+
+        //method
+        //take in event cost and half it
+        Float eventCostRemaining = info.eventCost * 0.5f;
+        //then ask the user if they would like to pay the remainer of the price
+        System.out.println("There is R" + eventCostRemaining + ". Would you like to process this payment? y or n");
+        String userInput = SC.nextLine().toLowerCase();
+
+        while (exitFlag == false) 
+        {
+            switch (userInput) 
+            {
+                case "y":
+                    //store payment in the database
+                    exitFlag = true;
+                    break;
+
+                case "n":
+                    System.out.println("Payment not processed");
+                    exitFlag = true;
+                    break;
+            
+                default:
+                    System.out.println("Please enter y or n");
+                    break;
+            }
+        }
+        
+        
     }
 
 }

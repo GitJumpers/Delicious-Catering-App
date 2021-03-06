@@ -35,6 +35,7 @@ public class MaxIdea
 
 
         /*make this a method if possible */
+        /*if it is too difficult to implement in methods we can just make a nested switch statement */
         do
         {
             int choose = menuOptions();

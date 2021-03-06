@@ -112,7 +112,7 @@ public class sqlDbConnection {
             String insertEventSql = "UPDATE tblEvents SET EventDate = " + EventDate + ", EventName = "+ EventName + 
             ", EventType = " + EventType + ", EventVenue = " + EventVenue + ", EventNumPeople = " + EventNumberOfPeople + 
             ",EventCost = " + EventCost + ", ThemeConfirm = " + ThemeFlag + ", EventTheme = " + Theme + ", DecorConfirm = " + DecorationFlag + 
-            ",DecorDetails" + DecorationDetails + ");";
+            ",DecorDetails" + DecorationDetails + "WHERE EventDate = " + EventDate;
             statement.executeUpdate(insertEventSql);
 
         } 

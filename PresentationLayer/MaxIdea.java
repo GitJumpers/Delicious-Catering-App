@@ -50,6 +50,14 @@ public class MaxIdea
                     
                 case 2:
                     //edit a booking
+
+                    //ask for the date of the booking
+                    System.out.println("Enter date for event to change");
+                    String newDate = dateConfirm();
+                    //change everything but the date
+                    event newEventInfo = setEventInfo(newDate);
+                    //update DB method
+                    logicController.updateEventInfo(newEventInfo);
                     break;
 
                 case 3:
@@ -363,6 +371,160 @@ public class MaxIdea
 
     }
 
+    static event setEventInfo(String formatedDate) throws SQLException
+    {
+        //classes
+        Logic LC = new Logic();
+        SC = new Scanner(System.in);
+        //vars
+        boolean ThemeFlag = false;
+        boolean DecorationFlag = false;
+        boolean loopEnd = false;
+        boolean loopEnd2 = false;
+        
+        //method
+        String formatDate = formatedDate;
+
+        System.out.println("Enter event name: ");
+        String EventName = SC.nextLine();
+
+        System.out.println("Enter event type: ");
+        String EventType = SC.nextLine();
+        
+        
+        System.out.println("Enter event venue: ");
+        String EventVenue = SC.nextLine();
+
+
+
+        System.out.println("Enter number of people at event: ");
+        int EventNumberOfPeople = SC.nextInt();
+
+        
+
+        //theme parameters
+        do 
+        {
+            System.out.println("Do you have a theme? Y or N");
+            String ThemeAnswer = SC.nextLine().toLowerCase();
+
+            switch (ThemeAnswer) 
+            {
+                case "y":
+                    ThemeFlag = true;
+                    loopEnd = true;
+                    break;
+
+                case "n":
+                    ThemeFlag = false;
+                    loopEnd = true;
+                    break;
+            
+                default:
+                    System.out.println("Please enter y or n");
+                    break;
+            }
+        } while (loopEnd != true);
+
+        String Theme;
+        if (ThemeFlag == true)
+        {
+            System.out.println("Enter theme of the event: ");
+            Theme = SC.nextLine();
+        }
+        else
+        {
+            Theme = "NA";
+        }
+        
+        
+        
+        //decoration parameters
+        do 
+        {
+            System.out.println("Do you have decorations? Y or N");
+            String ThemeAnswer = SC.nextLine().toLowerCase();
+            
+            switch (ThemeAnswer) 
+            {
+                case "y":
+                ThemeFlag = true;
+                loopEnd2 = true;
+                break;
+                
+                case "n":
+                ThemeFlag = false;
+                loopEnd2 = true;
+                break;
+                
+                default:
+                System.out.println("Please enter y or n");
+                break;
+            }
+        } while (loopEnd2 != true);
+        
+        
+        String DecorationDetails;
+        if (DecorationFlag == true) 
+        {
+            System.out.println("Enter decorations needed for the event: ");
+            DecorationDetails = SC.nextLine();
+        }
+        else
+        {
+            DecorationDetails  = "NA";
+        }
+
+
+        //process adultFood values
+        System.out.println("Number of chicken meals: ");
+        int ChickenMeals = SC.nextInt();
+        System.out.println("Number of Steak Meals: ");
+        int SteakMeals = SC.nextInt();
+        System.out.println("Number of GammonRoast Meals: ");
+        int GammonRoastMeals = SC.nextInt();
+        System.out.println("Number of Pasta Meals: ");
+        int PastaMeals = SC.nextInt();
+        System.out.println("Number of Soup Meals: ");
+        int SoupMeals = SC.nextInt();
+        System.out.println("Number of LobsterBisque Meals: ");
+        int LobsterBisqueMeals = SC.nextInt();
+
+        adultFood numberOfAdultMeals = new adultFood(ChickenMeals, SteakMeals, GammonRoastMeals, PastaMeals, SoupMeals, LobsterBisqueMeals);
+
+        adultFood adultMealCost = LC.getAdultMealValues(numberOfAdultMeals);
+
+
+        //process childFood values
+        System.out.println("Number of HotDog Meals: ");
+        int HotDogMeals = SC.nextInt();
+        System.out.println("Number of Chickenburger Meals: ");
+        int ChickenburgerMeals = SC.nextInt();
+        System.out.println("Number of BeefBurger Meals: ");
+        int BeefBurgerMeals = SC.nextInt();
+        System.out.println("Number of FishChips Meals: ");
+        int FishChipsMeals = SC.nextInt();
+        System.out.println("Number of Pizza Meals: ");
+        int PizzaMeals = SC.nextInt();
+        System.out.println("Number of Pie Meals: ");
+        int PieMeals = SC.nextInt();
+
+        childFood numberOfChildMeals = new childFood(HotDogMeals, ChickenburgerMeals, BeefBurgerMeals, FishChipsMeals, PizzaMeals, PieMeals);
+
+        childFood childMealCost = LC.getChildMealValues(numberOfChildMeals);
+        //final calculation
+        Float EventInitialCost = LC.calculateEventCosts(EventNumberOfPeople, adultMealCost, childMealCost);
+        Float EventCost = LC.discountCheck(EventNumberOfPeople, EventInitialCost);
+
+
+
+        event eventInfo = new event(formatDate, EventName, EventType, EventVenue, EventNumberOfPeople, EventCost, ThemeFlag, Theme, DecorationFlag, DecorationDetails);
+        return eventInfo;
+        
+
+
+
+    }
     // public adultFood(int ChickenMeals, int SteakMeals, int GammonRoastMeals, int PastaMeals, int SoupMeals, int LobsterBisqueMeals)
     // {
     //     this.chickenMeals = ChickenMeals;

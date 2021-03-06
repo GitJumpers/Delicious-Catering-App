@@ -227,4 +227,9 @@ public class Logic
     {
         Conn.updateEventPaid(info.eventDate, info.eventCost);
     }
+
+    public void updateEventInfo(event info)
+    {
+        Conn.updateEvent(info.eventDate, info.eventName, info.eventType, info.eventVenue, info.eventNumberOfPeople , info.eventCost, info.themeFlag, info.theme, info.decorationFlag, info.decorationDetails);
+    }
 }

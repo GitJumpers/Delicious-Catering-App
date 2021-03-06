@@ -46,16 +46,32 @@ public class MaxIdea
                     eventObjInfo = getEventInfo();
                     logicController.storeEvent(eventObjInfo);
                     break;
+                    
                 case 2:
                     //edit a booking
                     break;
+
                 case 3:
                     confirmationPayment(eventObjInfo);
                     break;
+
                 case 4:
                     Payment(eventObjInfo);
                     break;
+                    
                 case 5:
+                    //viewallbookings
+                    break;
+
+                case 6:
+                    //View all confirmed bookings
+                    break;
+
+                case 7:
+                    //View all nonconfirmed bookings
+                    break;
+
+                case 8:
                     loopEnd3 = true;
                     break;
 
